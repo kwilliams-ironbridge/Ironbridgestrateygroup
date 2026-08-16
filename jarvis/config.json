@@ -1,0 +1,76 @@
+{
+  "jarvisName": "Jarvis",
+  "role": "Chief of Staff",
+  "version": "1.0.0",
+  "emailMonitoring": {
+    "enabled": true,
+    "syncInterval": "5m",
+    "batchSize": 50,
+    "retryAttempts": 3,
+    "retryDelay": "30s"
+  },
+  "capabilities": {
+    "emailReading": {
+      "enabled": true,
+      "maxMessagesPerAccount": 100,
+      "readMetadata": true,
+      "readBody": true
+    },
+    "emailPrioritization": {
+      "enabled": true,
+      "useAiScoring": true,
+      "flagVips": true,
+      "groupByThread": true
+    },
+    "emailSummarization": {
+      "enabled": true,
+      "summaryLength": "medium",
+      "extractActionItems": true,
+      "extractDeadlines": true
+    },
+    "workflowExecution": {
+      "enabled": true,
+      "autoRouting": true,
+      "notificationSystem": true
+    }
+  },
+  "prioritization": {
+    "vipSenders": {
+      "weight": 10,
+      "includeInDaily": true
+    },
+    "keywords": {
+      "urgent": { "weight": 8 },
+      "action required": { "weight": 8 },
+      "decision needed": { "weight": 7 },
+      "deadline": { "weight": 6 }
+    },
+    "senderDomain": {
+      "@ironbridgestrategy.com": { "weight": 5 },
+      "@columbia.edu": { "weight": 4 }
+    }
+  },
+  "notifications": {
+    "enabled": true,
+    "channels": ["obsidian", "slack", "console"],
+    "priorityEmailAlert": true,
+    "dailyDigestTime": "06:00",
+    "timezone": "America/New_York"
+  },
+  "storage": {
+    "profilesPath": "./profiles",
+    "credentialsPath": "./credentials",
+    "cachePath": "./cache",
+    "obsidianVaultPath": null
+  },
+  "logging": {
+    "level": "info",
+    "logPath": "./logs",
+    "keepDays": 30
+  },
+  "security": {
+    "encryptCredentials": true,
+    "requireMfa": false,
+    "tokenRefreshBuffer": 300
+  }
+}

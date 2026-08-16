@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ironbridge User Profile Schema",
+  "description": "Schema for user profiles with multiple email accounts monitored by Jarvis",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Unique identifier for the user"
+    },
+    "name": {
+      "type": "string",
+      "description": "User's full name"
+    },
+    "role": {
+      "type": "string",
+      "description": "Role/title (e.g., CEO, Manager, Executive)"
+    },
+    "organization": {
+      "type": "string",
+      "description": "Organization name"
+    },
+    "primaryEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Primary email address for communications"
+    },
+    "emails": {
+      "type": "array",
+      "description": "Array of email accounts Jarvis monitors",
+      "items": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string",
+            "format": "email",
+            "description": "Email address to monitor"
+          },
+          "provider": {
+            "type": "string",
+            "enum": ["gmail", "outlook", "custom"],
+            "description": "Email service provider"
+          },
+          "isPrimary": {
+            "type": "boolean",
+            "description": "Whether this is the primary email for sending"
+          },
+          "monitoringEnabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether Jarvis actively monitors this email"
+          },
+          "labels": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Gmail labels or folders to monitor (if applicable)"
+          },
+          "credentials": {
+            "type": "object",
+            "properties": {
+              "oauthToken": {
+                "type": "string",
+                "description": "OAuth access token (stored securely, not in version control)"
+              },
+              "refreshToken": {
+                "type": "string",
+                "description": "OAuth refresh token (stored securely, not in version control)"
+              },
+              "tokenExpiryTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "When the access token expires"
+              }
+            },
+            "required": []
+          },
+          "monitoringRules": {
+            "type": "object",
+            "properties": {
+              "prioritySenders": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Email addresses that always get flagged as priority"
+              },
+              "excludeLabels": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Labels to exclude from monitoring"
+              },
+              "keywords": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Keywords that trigger priority flagging"
+              }
+            }
+          },
+          "syncStatus": {
+            "type": "object",
+            "properties": {
+              "lastSyncTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Last time Jarvis synced this email account"
+              },
+              "messageCount": {
+                "type": "integer",
+                "description": "Total messages in account"
+              },
+              "unreadCount": {
+                "type": "integer",
+                "description": "Count of unread messages"
+              }
+            }
+          }
+        },
+        "required": ["emailAddress", "provider"]
+      }
+    },
+    "jarvisSettings": {
+      "type": "object",
+      "properties": {
+        "digestFrequency": {
+          "type": "string",
+          "enum": ["daily", "realtime", "weekly"],
+          "description": "How often Jarvis sends email digests"
+        },
+        "summarizationLevel": {
+          "type": "string",
+          "enum": ["brief", "detailed", "comprehensive"],
+          "description": "How detailed email summaries should be"
+        },
+        "priorityThreshold": {
+          "type": "string",
+          "enum": ["high", "medium", "all"],
+          "description": "Which emails trigger notifications"
+        },
+        "autoRespond": {
+          "type": "boolean",
+          "description": "Whether Jarvis can send auto-responses"
+        }
+      }
+    },
+    "integrations": {
+      "type": "object",
+      "properties": {
+        "obsidianVault": {
+          "type": "string",
+          "description": "Path to Obsidian vault for storing email summaries"
+        },
+        "slackChannel": {
+          "type": "string",
+          "description": "Slack channel for notifications (optional)"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["userId", "name", "emails"]
+}

@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "userId": "kenyatta-williams-001",
+      "name": "Kenyatta S. Williams",
+      "role": "Founder & CEO",
+      "organization": "Ironbridge Strategy Group",
+      "primaryEmail": "kenyatta@ironbridgestrategy.com",
+      "emails": [
+        {
+          "emailAddress": "kenyatta@ironbridgestrategy.com",
+          "provider": "gmail",
+          "isPrimary": true,
+          "monitoringEnabled": true,
+          "labels": ["inbox", "important"],
+          "monitoringRules": {
+            "prioritySenders": [
+              "investors@example.com",
+              "clients@example.com"
+            ],
+            "excludeLabels": ["newsletters", "promotions"],
+            "keywords": ["urgent", "action required", "decision needed"]
+          },
+          "syncStatus": {
+            "lastSyncTime": "2026-08-16T00:00:00Z",
+            "messageCount": 0,
+            "unreadCount": 0
+          }
+        },
+        {
+          "emailAddress": "kenyatta.williams@columbia.edu",
+          "provider": "gmail",
+          "isPrimary": false,
+          "monitoringEnabled": true,
+          "labels": ["inbox"],
+          "monitoringRules": {
+            "prioritySenders": [
+              "department@columbia.edu"
+            ],
+            "excludeLabels": [],
+            "keywords": ["class", "assignment", "urgent"]
+          },
+          "syncStatus": {
+            "lastSyncTime": "2026-08-16T00:00:00Z",
+            "messageCount": 0,
+            "unreadCount": 0
+          }
+        },
+        {
+          "emailAddress": "kenyattawilliams1121@gmail.com",
+          "provider": "gmail",
+          "isPrimary": false,
+          "monitoringEnabled": true,
+          "labels": ["inbox"],
+          "monitoringRules": {
+            "prioritySenders": [],
+            "excludeLabels": ["promotions", "social"],
+            "keywords": []
+          },
+          "syncStatus": {
+            "lastSyncTime": "2026-08-16T00:00:00Z",
+            "messageCount": 0,
+            "unreadCount": 0
+          }
+        }
+      ],
+      "jarvisSettings": {
+        "digestFrequency": "daily",
+        "summarizationLevel": "detailed",
+        "priorityThreshold": "high",
+        "autoRespond": false
+      },
+      "integrations": {
+        "obsidianVault": "/Users/kenyatta/Obsidian/Ironbridge",
+        "slackChannel": "#jarvis-updates"
+      },
+      "createdAt": "2026-08-16T00:00:00Z",
+      "updatedAt": "2026-08-16T00:00:00Z"
+    }
+  ]
+}

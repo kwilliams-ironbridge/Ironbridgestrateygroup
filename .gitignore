@@ -1,0 +1,83 @@
+# Credentials & Sensitive Data
+credentials/*.json
+email/gmail-credentials.json
+email/gmail-config.json
+profiles/users.json
+.env
+.env.local
+.env.*.local
+
+# OAuth & API Keys
+google-oauth-credentials.json
+oauth-tokens.json
+
+# Python & Virtual Environment
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Cache
+cache/
+.cache/
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Obsidian local settings
+.obsidian/workspace
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+
+# Node (if using any Node tools)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Keep example files
+!profiles/users.example.json
+!credentials/.gitkeep
+!cache/.gitkeep
+!logs/.gitkeep
