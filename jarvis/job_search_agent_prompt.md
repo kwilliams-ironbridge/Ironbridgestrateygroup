@@ -68,6 +68,7 @@ Identify and flag employment opportunities and consulting engagements aligned wi
 ### Application Criteria - FLAG FOR AGENT REVIEW IF:
 ✅ **MUST MATCH:** Program/Project Management OR Training/Workforce Development experience required  
 ✅ **LIKELY INTERESTED:**
+- Salary: $100K-$180K (target $140K+)
 - Budget responsibility ($1M+ preferred)
 - Team leadership (10+ people)
 - Government, DoD, or federal contracting background preferred
@@ -76,13 +77,15 @@ Identify and flag employment opportunities and consulting engagements aligned wi
 - Location: Dayton, OH or fully remote
 - Involves instructional design, curriculum development, or training delivery
 - Organizational development or human capital focus
+- Senior-level title (Director, Senior Manager, VP level preferred)
 
 ❌ **SKIP IF:**
 - Purely individual contributor roles (no leadership)
 - Sales or business development focused
 - Software development/technical coding roles
-- Less than $60K salary (unless exceptional fit)
+- Less than $100K salary
 - Requires relocation to undesired location
+- Mid-level roles (seek Director+ level)
 
 ---
 

@@ -26,9 +26,9 @@
       "avoid": []
     },
     "salary_range": {
-      "minimum": 60000,
-      "target": 90000,
-      "maximum": 150000
+      "minimum": 100000,
+      "target": 140000,
+      "maximum": 180000
     },
     "platforms": {
       "linkedin": {

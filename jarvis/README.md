@@ -225,7 +225,8 @@ Consulting Conversion Rate | [%] |
 **Primary Goal:** Secure full-time Program Management or Training/Workforce Development role
 
 **Target Metrics:**
-- Applications submitted/month: 10-15
+- Salary target: $140K (range: $100K-$180K)
+- Applications submitted/month: 10-15 (higher quality, senior-level roles)
 - Response rate: 20-30%
 - Interview rate: 10-15% of applications
 - Consulting leads/month: 2-5

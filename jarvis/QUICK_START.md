@@ -18,7 +18,8 @@ Your personal intelligent job search agent that:
 **Primary:** Full-time Program Manager / Training Manager role  
 **Secondary:** Consulting projects (curriculum, training, program management)  
 **Where:** Dayton, OH or fully remote  
-**Salary Range:** $60K - $150K  
+**Salary Target:** $140K (range: $100K - $180K)  
+**Position Level:** Director+ preferred (no mid-level roles)  
 
 ---
 
