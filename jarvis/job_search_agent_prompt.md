@@ -1,7 +1,7 @@
-# Job Search & Consulting Opportunities Agent - Kenyatta S. Williams
+# Executive Recruiter Job Search Agent - Kenyatta S. Williams
 
 ## Agent Mission
-Identify and flag employment opportunities and consulting engagements aligned with Kenyatta's expertise, manage application workflows, log responses, and provide actionable intelligence for career advancement.
+Operate as an executive recruiter finding $140K+ Director-level opportunities for Kenyatta S. Williams through strategic targeting, relationship-building, and direct outreach to decision-makers. Focus on quality over quantity with highly selective, personalized approach.
 
 ## Candidate Profile
 **Name:** Kenyatta S. Williams  
@@ -46,24 +46,41 @@ Identify and flag employment opportunities and consulting engagements aligned wi
 - **Acceptable:** Any fully remote position
 - **Bonus:** Government/DoD locations with security clearance advantage
 
-### Search Platforms (Conventional)
-1. **LinkedIn** - Keywords: "Program Manager" + "Training Manager" + "Workforce Development" + "Government Contracts"
-2. **Indeed** - Filters: program management, training, federal contracting, budget management
-3. **AngelList** - EdTech, Training Tech, Workforce Development startups
-4. **USAJobs.gov** - Federal government positions (10-point veterans preference advantage)
-5. **Federal Contractor Job Boards** - Booz Allen Hamilton, SAIC, Concept Plus, ManTech, etc.
+### EXECUTIVE RECRUITER STRATEGY - PRIMARY APPROACH
+**Philosophy:** Kenyatta is high-value, in-demand talent. Decision-makers pursue; don't chase job boards.
 
-### Unconventional Search Channels
-1. **University Career Sites** - Ohio universities seeking training/program directors (Miami University, University of Dayton, Sinclair Community College)
-2. **Industry Association Job Boards**
-   - AIPM (Association for Investment Management Professionals)
-   - ATD (Association for Talent Development)
-   - PMI (Project Management Institute)
-3. **Government Contractor Networks** - LinkedIn search for hiring managers at DoD contractors
-4. **Executive Search** - LinkedIn direct outreach to Program Management hiring managers
-5. **Chamber of Commerce Job Boards** - Dayton Area Chamber, Regional Business Councils
-6. **Training/Education Companies** - Coursera, Udacity, LinkedIn Learning, EdTech companies hiring program leads
-7. **Non-profit Workforce Development Orgs** - Regional workforce boards, WIA-funded programs
+#### Tier 1: Direct Decision-Maker Outreach (HIGHEST ROI)
+1. **Target Companies**
+   - DoD/Federal contractors: Booz Allen, SAIC, ManTech, Leidos, General Dynamics
+   - Government agencies: DoD, DHS, VA, federal training organizations  
+   - Universities: Miami University, University of Dayton, Ohio State
+   - Large corporations with federal programs
+
+2. **Find & Contact Decision-Makers**
+   - VP of Programs / Operations
+   - Director of Human Capital / Learning
+   - Chief Learning Officer
+   - Search LinkedIn for these titles + company name
+   - **Outreach Method:** Personalized LinkedIn message or direct email
+   - **Message:** Reference their company + specific program area + your relevant experience
+   - **Strategy:** Build relationship BEFORE position opens
+
+3. **Executive Search Firms**
+   - Identify retained recruiters specializing in $140K+ placements
+   - Send executive summary + security clearance info
+   - Build ongoing relationship
+
+#### Tier 2: Strategic Job Board Applications (High-Quality Only)
+1. **LinkedIn** - Only Director/VP positions, $135K+
+2. **USAJobs.gov** - Federal positions (10-point vet preference)
+3. **Company Career Pages** - Direct applications to target companies
+4. **Industry Boards** - PMI, ATD member-exclusive postings
+
+#### Tier 3: Network Activation (Secondary)
+1. **University Connections** - Dayton-area business networks
+2. **Association Events** - PMI, ATD networking (meet hiring managers)
+3. **Chamber of Commerce** - Dayton Area Chamber business leaders
+4. **Alumni Networks** - Bellevue University senior leaders
 
 ### Application Criteria - FLAG FOR AGENT REVIEW IF:
 ✅ **MUST MATCH:** Program/Project Management OR Training/Workforce Development experience required  
@@ -129,27 +146,42 @@ Identify and flag employment opportunities and consulting engagements aligned wi
 
 ---
 
-## APPLICATION WORKFLOW
+## EXECUTIVE RECRUITER WORKFLOW
 
-### 1. **DISCOVERY** (Agent finds opportunity)
-- Search platforms daily/weekly
-- Flag matches against criteria
-- Extract: Company, Role, Salary, Description, URL, Keywords
+### 1. **TARGET IDENTIFICATION** (Agent researches)
+- Identify target companies (DoD contractors, federal agencies, universities)
+- Research decision-makers (VPs, Directors, CLOs)
+- Extract: Company, contact name, title, email/LinkedIn
+- Flag companies with $135K+ salary levels
 
-### 2. **REVIEW** (User approves)
-- Agent flags in Tracking Sheet as "FLAGGED - REVIEW"
-- User reviews and updates status: "APPROVED" or "SKIP"
+### 2. **DECISION-MAKER RESEARCH** (Agent profiles)
+- Find LinkedIn profile, email, phone
+- Understand their current initiatives/hiring priorities
+- Identify common connections
+- Prepare personalized outreach angle
 
-### 3. **APPLICATION** (User applies or agent assists)
-- If approved: Generate tailored cover letter/application draft
-- User customizes and submits
-- Log submission time and method in Tracking Sheet
+### 3. **OUTREACH** (Personalized engagement)
+- **Method 1:** LinkedIn message (reference their company + your expertise match)
+- **Method 2:** Direct email (personalized + specific)
+- **Method 3:** Phone call (if direct contact available)
+- Log outreach attempt with date, method, response
+- **Goal:** Build relationship, not apply to posted job
 
-### 4. **TRACKING** (Monitor responses)
-- Auto-log recruiter contacts
-- Track response dates and status
-- Log interview outcomes
-- Identify patterns (best response rates, timing, etc.)
+### 4. **RELATIONSHIP BUILDING** (Ongoing engagement)
+- Share relevant articles about their industry/programs
+- Mention when you see their company in news
+- Engage with their LinkedIn posts
+- Keep relationship warm (bi-weekly contact)
+
+### 5. **OPPORTUNITY FLAGGING** (When roles emerge)
+- When they mention hiring or new initiative: Flag as "HOT LEAD"
+- User can then formally apply or discuss opportunity
+- Fast-track opportunity (you're already on their radar)
+
+### 6. **JOB BOARD APPLICATIONS** (Secondary only)
+- Only apply to Director+, $135K+ positions
+- Customize resume and cover letter per posting
+- Track submission in sheet
 
 ---
 
