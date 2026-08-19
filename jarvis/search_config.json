@@ -1,0 +1,152 @@
+{
+  "candidate": {
+    "name": "Kenyatta S. Williams",
+    "email": "kenyattawilliams1121@gmail.com",
+    "phone": "937-477-8210",
+    "location": "Dayton, OH 45420",
+    "clearance": "Active Top Secret/SCI",
+    "years_experience": 25
+  },
+  "job_search": {
+    "target_roles": [
+      "Program Manager",
+      "Training Manager",
+      "Workforce Development Director",
+      "Contract Manager",
+      "Operations Manager",
+      "Director of Learning & Development",
+      "Manager of Instructional Design",
+      "Director of Training Delivery",
+      "VP of Program Management",
+      "Government Relations Manager"
+    ],
+    "geographic_preference": {
+      "primary": ["Dayton, OH", "Columbus, OH"],
+      "acceptable": ["fully remote"],
+      "avoid": []
+    },
+    "salary_range": {
+      "minimum": 60000,
+      "target": 90000,
+      "maximum": 150000
+    },
+    "platforms": {
+      "linkedin": {
+        "enabled": true,
+        "search_frequency": "daily",
+        "keywords": ["program manager", "training manager", "workforce development", "government contracts"]
+      },
+      "indeed": {
+        "enabled": true,
+        "search_frequency": "daily",
+        "keywords": ["program management", "training delivery", "workforce development"]
+      },
+      "usajobs": {
+        "enabled": true,
+        "search_frequency": "weekly",
+        "keywords": ["program manager", "training", "federal contracts"],
+        "veterans_preference": true
+      },
+      "university_boards": {
+        "enabled": true,
+        "search_frequency": "weekly",
+        "institutions": ["Miami University", "University of Dayton", "Sinclair Community College", "Ohio State University"]
+      },
+      "contractor_boards": {
+        "enabled": true,
+        "search_frequency": "weekly",
+        "companies": ["Booz Allen Hamilton", "SAIC", "Concept Plus LLC", "ManTech", "Leidos"]
+      }
+    },
+    "search_keywords": [
+      "program management",
+      "program manager",
+      "training delivery",
+      "training manager",
+      "workforce development",
+      "curriculum development",
+      "instructional design",
+      "government contracts",
+      "federal programs",
+      "contract management",
+      "operations management",
+      "team leadership",
+      "budget management"
+    ],
+    "must_have_criteria": [
+      "program management OR training/workforce development experience",
+      "team leadership experience (5+ people)"
+    ],
+    "nice_to_have_criteria": [
+      "government or DoD background",
+      "budget responsibility ($1M+)",
+      "security clearance or clearance eligible",
+      "remote work option",
+      "Dayton, OH location"
+    ]
+  },
+  "consulting": {
+    "enabled": true,
+    "service_areas": [
+      "Program Management Consulting",
+      "Training & Curriculum Consulting",
+      "Workforce Development Consulting",
+      "Organizational Development",
+      "Human Capital Strategy"
+    ],
+    "rate_range": {
+      "minimum": 100,
+      "target": 125,
+      "maximum": 200
+    },
+    "platforms": {
+      "upwork": {
+        "enabled": true,
+        "search_frequency": "twice_weekly",
+        "keywords": ["program management", "training design", "curriculum development", "workforce development"]
+      },
+      "fiverr": {
+        "enabled": true,
+        "search_frequency": "weekly"
+      },
+      "toptal": {
+        "enabled": true,
+        "search_frequency": "weekly"
+      },
+      "catalant": {
+        "enabled": true,
+        "search_frequency": "weekly"
+      },
+      "linkedin_network": {
+        "enabled": true,
+        "search_frequency": "ongoing",
+        "target_audience": "program managers, training directors, organizational development leaders"
+      }
+    },
+    "project_criteria": {
+      "minimum_project_value": 5000,
+      "maximum_project_value": 50000,
+      "minimum_duration_weeks": 2,
+      "maximum_duration_weeks": 26,
+      "remote_required": true
+    }
+  },
+  "application_strategy": {
+    "approach": "flag_for_review",
+    "auto_generate_cover_letters": true,
+    "track_all_responses": true,
+    "follow_up_after_days": 14
+  },
+  "tracking": {
+    "csv_file": "jarvis/job_tracking.csv",
+    "log_file": "jarvis/job_search.log",
+    "google_sheet": "Kenyatta Job Search - Master Log"
+  },
+  "analytics": {
+    "track_response_rate": true,
+    "track_interview_rate": true,
+    "track_salary_offers": true,
+    "identify_best_platforms": true,
+    "monthly_reporting": true
+  }
+}
