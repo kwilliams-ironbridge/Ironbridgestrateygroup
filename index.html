@@ -3,8 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ironbridge Strategy Group</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     BEFORE LAUNCH — replace every occurrence of these placeholders:
+       1. https://ironbridgestrategygroup.com   → your real domain
+       2. hello@ironbridgestrategygroup.com     → your real contact address
+       3. The two Mailchimp form action URLs    → see the comment above
+                                                   each <form> in the body
+       4. Create privacy.html (linked in the footer, required for
+          email capture and for Mailchimp compliance)
+       5. Add og-image.png (1200×630) to the site root
+     ══════════════════════════════════════════════════════════════════ -->
+
+<title>Ironbridge Strategy Group | Leadership for New Managers</title>
+<meta name="description" content="Ironbridge equips new managers, corporate professionals, and transitioning veterans with battle-tested leadership frameworks from 25 years of military command. Download the free Battle Rhythm Planner.">
+<link rel="canonical" href="https://ironbridgestrategygroup.com/">
+<meta name="theme-color" content="#08090d">
+
+<!-- Open Graph / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ironbridge Strategy Group">
+<meta property="og:title" content="Most Professionals Are Promoted. Nobody Teaches Them How to Lead.">
+<meta property="og:description" content="Battle-tested leadership frameworks from 25 years of military command, translated for the modern workplace. Get the free Battle Rhythm Planner.">
+<meta property="og:url" content="https://ironbridgestrategygroup.com/">
+<meta property="og:image" content="https://ironbridgestrategygroup.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ironbridge Strategy Group — Leadership Intelligence">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Most Professionals Are Promoted. Nobody Teaches Them How to Lead.">
+<meta name="twitter:description" content="Battle-tested leadership frameworks from 25 years of military command, translated for the modern workplace.">
+<meta name="twitter:image" content="https://ironbridgestrategygroup.com/og-image.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308090d'/%3E%3Crect x='9' y='7' width='14' height='3' fill='%23c9a84c'/%3E%3Crect x='13.5' y='7' width='5' height='18' fill='%23c9a84c'/%3E%3Crect x='9' y='22' width='14' height='3' fill='%23c9a84c'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ironbridge Strategy Group, LLC",
+  "url": "https://ironbridgestrategygroup.com/",
+  "description": "Leadership development for new managers, corporate professionals, and transitioning veterans, built on 25 years of United States Air Force command experience.",
+  "email": "hello@ironbridgestrategygroup.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Huber Heights",
+    "addressRegion": "OH",
+    "addressCountry": "US"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Kenyatta S. Williams",
+    "jobTitle": "Founder and Principal",
+    "honorificSuffix": "Senior Master Sergeant, USAF (Ret.)"
+  }
+}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,8 +73,9 @@
     --gold:      #c9a84c;
     --gold-dim:  #9a7c35;
     --offwhite:  #e8e2d4;
-    --muted:     #6b7a8d;
+    --muted:     #7b8a9d;   /* 5.3:1 on --navy, 5.7:1 on --black (WCAG AA) */
     --rule:      #1e2d45;
+    --error:     #e07a7a;
   }
 
   html { scroll-behavior: smooth; }
@@ -30,11 +89,56 @@
     overflow-x: hidden;
   }
 
+  /* ── A11Y UTILITIES ── */
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .skip-link {
+    position: absolute;
+    left: 8px; top: -60px;
+    z-index: 200;
+    background: var(--gold);
+    color: var(--black);
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: top 0.15s;
+  }
+  .skip-link:focus { top: 8px; }
+
+  /* Visible keyboard focus everywhere */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* display:flex on the forms overrides the UA rule for [hidden]; without
+     this an element hidden from script stays on screen */
+  [hidden] { display: none !important; }
+
+  /* Mailchimp bot trap — must stay in the DOM but out of view */
+  .mc-hp { position: absolute; left: -5000px; }
+
   /* ── NAV ── */
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
     padding: 20px 48px;
     border-bottom: 1px solid var(--rule);
     position: sticky;
@@ -48,17 +152,33 @@
     letter-spacing: 4px;
     color: var(--gold);
     text-transform: uppercase;
+    text-decoration: none;
   }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
   .nav-tag {
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--muted);
   }
+  .nav-cta {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 9px 16px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
 
   /* ── HERO ── */
   .hero {
-    min-height: 92vh;
+    min-height: 92dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -166,11 +286,11 @@
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-size: 13px;
-    outline: none;
     transition: border-color 0.2s;
   }
   .cta-form input::placeholder { color: var(--muted); }
   .cta-form input:focus { border-color: var(--gold); }
+  .cta-form input[aria-invalid="true"] { border-color: var(--error); }
   .cta-form button {
     background: var(--gold);
     color: var(--black);
@@ -186,12 +306,24 @@
     transition: background 0.2s;
   }
   .cta-form button:hover { background: #e0b85a; }
+  .cta-form button[disabled] { opacity: 0.6; cursor: progress; }
   .cta-privacy {
     font-size: 10px;
     color: var(--muted);
     margin-top: 8px;
     letter-spacing: 0.5px;
   }
+  .cta-privacy a { color: var(--muted); }
+
+  /* Status line shared by both signup forms */
+  .form-msg {
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+  }
+  .form-msg:not(:empty) { margin-top: 12px; }
+  .form-msg.is-success { color: var(--gold); }
+  .form-msg.is-error   { color: var(--error); }
 
   /* ── DIVIDER ── */
   .divider {
@@ -207,6 +339,7 @@
     padding: 0 48px;
     border-bottom: 1px solid var(--rule);
     overflow-x: auto;
+    list-style: none;
   }
   .proof-item {
     padding: 28px 40px 28px 0;
@@ -217,6 +350,7 @@
     padding-left: 40px;
   }
   .proof-num {
+    display: block;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 36px;
     letter-spacing: 2px;
@@ -224,6 +358,7 @@
     line-height: 1;
   }
   .proof-lbl {
+    display: block;
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -275,7 +410,7 @@
     align-items: center;
     padding-top: 2px;
   }
-  .shift-items { display: flex; flex-direction: column; gap: 14px; }
+  .shift-items { display: flex; flex-direction: column; gap: 14px; list-style: none; }
   .shift-item {
     font-size: 13px;
     color: var(--muted);
@@ -427,7 +562,7 @@
     padding-left: 24px;
     margin-bottom: 20px;
   }
-  .about-section blockquote cite {
+  .about-section blockquote .attrib {
     display: block;
     font-style: normal;
     font-family: 'Inter', sans-serif;
@@ -460,12 +595,21 @@
     background: var(--gold);
     flex-shrink: 0;
   }
+  .about-contact {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .about-contact a { color: var(--gold); }
 
   /* ── FOOTER CTA ── */
   .footer-cta {
     padding: 80px 48px;
     text-align: center;
     background: var(--navy);
+    scroll-margin-top: 80px;
   }
   .footer-cta h2 {
     font-family: 'Bebas Neue', sans-serif;
@@ -475,18 +619,17 @@
     margin-bottom: 16px;
     line-height: 1.1;
   }
-  .footer-cta p {
+  .footer-cta > p {
     font-size: 14px;
     color: var(--muted);
     max-width: 480px;
     margin: 0 auto 36px;
     line-height: 1.8;
   }
+  .footer-cta-wrap { max-width: 520px; margin: 0 auto; }
   .footer-cta-form {
     display: flex;
     gap: 10px;
-    max-width: 440px;
-    margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -500,10 +643,11 @@
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-size: 13px;
-    outline: none;
+    transition: border-color 0.2s;
   }
   .footer-cta-form input:focus { border-color: var(--gold); }
   .footer-cta-form input::placeholder { color: var(--muted); }
+  .footer-cta-form input[aria-invalid="true"] { border-color: var(--error); }
   .footer-cta-form button {
     background: var(--gold);
     color: var(--black);
@@ -520,6 +664,8 @@
     transition: background 0.2s;
   }
   .footer-cta-form button:hover { background: #e0b85a; }
+  .footer-cta-form button[disabled] { opacity: 0.6; cursor: progress; }
+  .footer-cta .cta-privacy { text-align: center; margin-top: 14px; }
 
   /* ── FOOTER ── */
   footer {
@@ -533,126 +679,202 @@
   }
   footer .nav-logo { font-size: 14px; }
   footer p { font-size: 11px; color: var(--muted); }
-
-  /* ── THANK YOU STATE ── */
-  .ty-msg {
-    display: none;
-    font-size: 13px;
-    color: var(--gold);
-    letter-spacing: 1px;
-    margin-top: 10px;
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    flex-wrap: wrap;
   }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .footer-links a:hover { color: var(--gold); text-decoration: underline; }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .magnet-section { gap: 40px; }
+    .about-section { gap: 48px; }
+  }
+
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
+    .nav-right { gap: 14px; }
+    .nav-tag { display: none; }
     .hero { padding: 60px 24px 48px; min-height: auto; }
-    .proof-strip { padding: 0 24px; }
     .section { padding: 60px 24px; }
     .magnet-section { padding: 60px 24px; grid-template-columns: 1fr; gap: 40px; }
     .about-section { padding: 60px 24px; grid-template-columns: 1fr; gap: 40px; }
     .footer-cta { padding: 60px 24px; }
     footer { padding: 20px 24px; }
-    .shift-grid { grid-template-columns: 1fr 32px 1fr; }
+
+    /* 2x2 grid so all four proof points are visible without scrolling */
+    .proof-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      overflow-x: visible;
+    }
+    .proof-item,
+    .proof-item + .proof-item {
+      padding: 22px 20px;
+      border-left: none;
+      border-top: 1px solid var(--rule);
+    }
+    .proof-item:nth-child(-n+2) { border-top: none; }
+    .proof-item:nth-child(odd)  { border-right: 1px solid var(--rule); }
+  }
+
+  @media (max-width: 560px) {
+    /* Full-size logo plus button overflows a 320px viewport */
+    .nav-logo { font-size: 12px; letter-spacing: 1.5px; }
+    .nav-cta { font-size: 9px; letter-spacing: 1px; padding: 8px 10px; }
+
+    /* Stack the before/after columns; the arrow turns to point down */
+    .shift-grid { grid-template-columns: 1fr; max-width: 100%; }
+    .shift-arrow-col { flex-direction: row; padding: 18px 0; }
+    .arrow-line { width: auto; height: 1px; flex: 1; margin: 0 10px; }
+    .arrow-head { transform: rotate(90deg); }
+    .cta-block { padding: 24px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 </head>
-<body>
+<body id="top">
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Ironbridge Strategy Group</div>
-  <div class="nav-tag">Leadership Intelligence</div>
+  <a class="nav-logo" href="#top">Ironbridge Strategy Group</a>
+  <div class="nav-right">
+    <span class="nav-tag">Leadership Intelligence</span>
+    <a class="nav-cta" href="#get-planner">Get the Planner</a>
+  </div>
 </nav>
 
+<main id="main">
+
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">Ironbridge Strategy Group</div>
-  <h1>Most Professionals Are Promoted.<br><em>Nobody Teaches Them How to Lead.</em></h1>
-  <p class="hero-sub">Ironbridge equips new managers, corporate professionals, and transitioning veterans with battle-tested leadership frameworks from 25 years of military command -- translated for the modern workplace.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <p class="hero-eyebrow">Ironbridge Strategy Group</p>
+  <h1 id="hero-title">Most Professionals Are Promoted.<br><em>Nobody Teaches Them How to Lead.</em></h1>
+  <p class="hero-sub">Ironbridge equips new managers, corporate professionals, and transitioning veterans with battle-tested leadership frameworks from 25 years of military command &mdash; translated for the modern workplace.</p>
 
   <div class="cta-block">
-    <div class="cta-label">Free Resource</div>
-    <div class="cta-headline">The Battle Rhythm Planner for Corporate Leaders</div>
-    <div class="cta-desc">The same daily planning framework military commanders use to stay focused and execute under pressure -- in a one-page tool built for your workday.</div>
-    <div class="cta-form" id="hero-form">
-      <input type="text" placeholder="First name" id="hero-name">
-      <input type="email" placeholder="Work email address" id="hero-email">
-      <button onclick="submitForm('hero')">Send Me the Planner</button>
-    </div>
-    <div class="ty-msg" id="hero-ty">Mission confirmed. Check your inbox.</div>
-    <p class="cta-privacy">No spam. No fluff. Unsubscribe any time.</p>
+    <p class="cta-label">Free Resource</p>
+    <p class="cta-headline">The Battle Rhythm Planner for Corporate Leaders</p>
+    <p class="cta-desc">The same daily planning framework military commanders use to stay focused and execute under pressure &mdash; in a one-page tool built for your workday.</p>
+
+    <!-- ══ MAILCHIMP ══════════════════════════════════════════════════
+         Replace the action URL below with your own audience's embed URL.
+         Find it in Mailchimp: Audience → Signup forms → Embedded forms.
+         Copy the <form action="..."> value from the generated code; it
+         looks like:
+           https://<account>.us21.list-manage.com/subscribe/post?u=<32-hex>&amp;id=<10-hex>
+         Keep the &amp; encoding, and keep "/subscribe/post?" exactly as
+         is — the script rewrites it to "/subscribe/post-json?" so the
+         visitor stays on this page. The same URL must be set on the
+         second form near the bottom of this file.
+         ═════════════════════════════════════════════════════════════ -->
+    <form class="cta-form"
+          data-mc-form
+          data-source="hero"
+          action="https://ironbridgestrategygroup.us21.list-manage.com/subscribe/post?u=MAILCHIMP_U&amp;id=MAILCHIMP_ID"
+          method="post"
+          target="_blank">
+      <label class="visually-hidden" for="hero-name">First name</label>
+      <input type="text" id="hero-name" name="FNAME" placeholder="First name" autocomplete="given-name">
+
+      <label class="visually-hidden" for="hero-email">Work email address</label>
+      <input type="email" id="hero-email" name="EMAIL" placeholder="Work email address" autocomplete="email" required aria-describedby="hero-privacy">
+
+      <button type="submit">Send Me the Planner</button>
+    </form>
+    <p class="form-msg" data-mc-msg tabindex="-1"></p>
+    <p class="cta-privacy" id="hero-privacy">No spam. No fluff. Unsubscribe any time. <a href="privacy.html">Privacy policy</a>.</p>
   </div>
 </section>
 
 <!-- PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-item">
-    <div class="proof-num">25</div>
-    <div class="proof-lbl">Years USAF Leadership</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-num">294</div>
-    <div class="proof-lbl">Personnel Led</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-num">10</div>
-    <div class="proof-lbl">Geographically Separated Units</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-num">$30M+</div>
-    <div class="proof-lbl">Programs Managed</div>
-  </div>
-</div>
+<ul class="proof-strip">
+  <li class="proof-item">
+    <span class="proof-num">25</span>
+    <span class="proof-lbl">Years USAF Leadership</span>
+  </li>
+  <li class="proof-item">
+    <span class="proof-num">294</span>
+    <span class="proof-lbl">Personnel Led</span>
+  </li>
+  <li class="proof-item">
+    <span class="proof-num">10</span>
+    <span class="proof-lbl">Geographically Separated Units</span>
+  </li>
+  <li class="proof-item">
+    <span class="proof-num">$30M+</span>
+    <span class="proof-lbl">Programs Managed</span>
+  </li>
+</ul>
 
 <!-- TRANSFORMATION SECTION -->
-<section class="section">
-  <div class="section-eyebrow">The Ironbridge Shift</div>
-  <h2>From Individual Contributor to Confident Leader</h2>
+<section class="section" aria-labelledby="shift-title">
+  <p class="section-eyebrow">The Ironbridge Shift</p>
+  <h2 id="shift-title">From Individual Contributor to Confident Leader</h2>
 
   <div class="shift-grid">
     <div>
-      <div class="shift-col-label">Where You Are</div>
-      <div class="shift-items">
-        <div class="shift-item">Solving every problem yourself</div>
-        <div class="shift-item">Managing by instinct, not framework</div>
-        <div class="shift-item">Promoted, but nobody trained you</div>
-        <div class="shift-item">Overwhelmed by people and priorities</div>
-      </div>
+      <p class="shift-col-label" id="shift-before">Where You Are</p>
+      <ul class="shift-items" aria-labelledby="shift-before">
+        <li class="shift-item">Solving every problem yourself</li>
+        <li class="shift-item">Managing by instinct, not framework</li>
+        <li class="shift-item">Promoted, but nobody trained you</li>
+        <li class="shift-item">Overwhelmed by people and priorities</li>
+      </ul>
     </div>
-    <div class="shift-arrow-col">
+    <div class="shift-arrow-col" aria-hidden="true">
       <div class="arrow-line"></div>
       <div class="arrow-head">&#8594;</div>
       <div class="arrow-line"></div>
     </div>
     <div>
-      <div class="shift-col-label">Where You're Going</div>
-      <div class="shift-items">
-        <div class="shift-item after">Developing problem-solvers on your team</div>
-        <div class="shift-item after">Leading with clarity, standards, and trust</div>
-        <div class="shift-item after">Operating from a proven military playbook</div>
-        <div class="shift-item after">Taking care of the people in your charge</div>
-      </div>
+      <p class="shift-col-label" id="shift-after">Where You&rsquo;re Going</p>
+      <ul class="shift-items" aria-labelledby="shift-after">
+        <li class="shift-item after">Developing problem-solvers on your team</li>
+        <li class="shift-item after">Leading with clarity, standards, and trust</li>
+        <li class="shift-item after">Operating from a proven military playbook</li>
+        <li class="shift-item after">Taking care of the people in your charge</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- LEAD MAGNET SECTION -->
-<section class="magnet-section">
+<section class="magnet-section" aria-labelledby="magnet-title">
   <div>
-    <div class="magnet-label">Free Download</div>
-    <h2>The Battle Rhythm Planner</h2>
-    <p>Military commanders don't start their day scattered. They run a battle rhythm -- a structured daily brief that organizes priorities, people, and decisions before the day begins. This one-page planner brings that discipline to your workday.</p>
+    <p class="magnet-label">Free Download</p>
+    <h2 id="magnet-title">The Battle Rhythm Planner</h2>
+    <p>Military commanders don&rsquo;t start their day scattered. They run a battle rhythm &mdash; a structured daily brief that organizes priorities, people, and decisions before the day begins. This one-page planner brings that discipline to your workday.</p>
     <ul class="magnet-features">
-      <li>Daily mission statement -- your single focus for the day</li>
+      <li>Daily mission statement &mdash; your single focus for the day</li>
       <li>Top 3 priority tasks, ranked by impact</li>
-      <li>People check-in -- who needs your attention today</li>
-      <li>Decision log -- track what you decided and why</li>
-      <li>End-of-day after-action review -- 3 questions, 5 minutes</li>
+      <li>People check-in &mdash; who needs your attention today</li>
+      <li>Decision log &mdash; track what you decided and why</li>
+      <li>End-of-day after-action review &mdash; 3 questions, 5 minutes</li>
     </ul>
   </div>
   <div>
-    <div class="planner-card">
+    <!-- Decorative preview of the planner; the feature list above carries the content -->
+    <div class="planner-card" aria-hidden="true">
       <div class="planner-card-header">Battle Rhythm Planner</div>
       <div class="planner-card-sub">Corporate Leaders Edition &nbsp;|&nbsp; Ironbridge Strategy Group</div>
       <div class="planner-row">
@@ -690,16 +912,17 @@
 </section>
 
 <!-- ABOUT -->
-<section class="about-section">
+<section class="about-section" aria-labelledby="about-title">
+  <h2 class="visually-hidden" id="about-title">About Ironbridge Strategy Group</h2>
   <div>
     <blockquote>
-      "Leadership is not about being in charge. It's about taking care of the people in your charge."
-      <cite>Simon Sinek &nbsp;|&nbsp; Confirmed by 25 years of command</cite>
+      &ldquo;Leadership is not about being in charge. It&rsquo;s about taking care of the people in your charge.&rdquo;
+      <span class="attrib">Simon Sinek &nbsp;|&nbsp; Confirmed by 25 years of command</span>
     </blockquote>
   </div>
   <div class="about-body">
-    <p>Kenyatta S. Williams spent 25 years in the United States Air Force rising to Senior Master Sergeant -- leading 294 personnel across 10 geographically separated units, advising generals, and managing enterprise programs worth over $30 million.</p>
-    <p>Ironbridge Strategy Group exists to take everything that works in military leadership and make it available to the corporate world -- for the manager who was just promoted, the professional who feels overwhelmed, and the veteran who is ready to lead in a new arena.</p>
+    <p>Kenyatta S. Williams spent 25 years in the United States Air Force rising to Senior Master Sergeant &mdash; leading 294 personnel across 10 geographically separated units, advising generals, and managing enterprise programs worth over $30 million.</p>
+    <p>Ironbridge Strategy Group exists to take everything that works in military leadership and make it available to the corporate world &mdash; for the manager who was just promoted, the professional who feels overwhelmed, and the veteran who is ready to lead in a new arena.</p>
     <ul class="cred-list">
       <li>Senior Master Sergeant, USAF (Ret.)</li>
       <li>PhD Candidate, Human Capital Management</li>
@@ -707,45 +930,223 @@
       <li>Certified Scrum Master</li>
       <li>Adjunct Professor, Columbia College &amp; Lindenwood University</li>
     </ul>
+    <p class="about-contact">Speaking, workshops, or advisory work? Reach Kenyatta directly at <a href="mailto:hello@ironbridgestrategygroup.com">hello@ironbridgestrategygroup.com</a>.</p>
   </div>
 </section>
 
 <!-- FOOTER CTA -->
-<section class="footer-cta">
-  <h2>Your First Mission Starts Here</h2>
+<section class="footer-cta" id="get-planner" aria-labelledby="footer-cta-title">
+  <h2 id="footer-cta-title">Your First Mission Starts Here</h2>
   <p>Download the Battle Rhythm Planner and build the daily leadership habit that separates commanders from contributors.</p>
-  <div class="footer-cta-form" id="footer-form">
-    <input type="email" placeholder="Your email address" id="footer-email">
-    <button onclick="submitForm('footer')">Get the Planner</button>
+
+  <div class="footer-cta-wrap">
+    <!-- Same Mailchimp audience URL as the hero form above — update both together. -->
+    <form class="footer-cta-form"
+          data-mc-form
+          data-source="footer"
+          action="https://ironbridgestrategygroup.us21.list-manage.com/subscribe/post?u=MAILCHIMP_U&amp;id=MAILCHIMP_ID"
+          method="post"
+          target="_blank">
+      <label class="visually-hidden" for="footer-name">First name</label>
+      <input type="text" id="footer-name" name="FNAME" placeholder="First name" autocomplete="given-name">
+
+      <label class="visually-hidden" for="footer-email">Your email address</label>
+      <input type="email" id="footer-email" name="EMAIL" placeholder="Your email address" autocomplete="email" required aria-describedby="footer-privacy">
+
+      <button type="submit">Get the Planner</button>
+    </form>
+    <p class="form-msg" data-mc-msg tabindex="-1"></p>
+    <p class="cta-privacy" id="footer-privacy">No spam. No fluff. Unsubscribe any time. <a href="privacy.html">Privacy policy</a>.</p>
   </div>
-  <div class="ty-msg" id="footer-ty" style="margin-top:16px;">Mission confirmed. Check your inbox.</div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
-  <div class="nav-logo">Ironbridge Strategy Group</div>
-  <p>&copy; 2026 Ironbridge Strategy Group, LLC &nbsp;&bull;&nbsp; Huber Heights, Ohio</p>
+  <a class="nav-logo" href="#top">Ironbridge Strategy Group</a>
+  <ul class="footer-links">
+    <li><a href="privacy.html">Privacy Policy</a></li>
+    <li><a href="mailto:hello@ironbridgestrategygroup.com">Contact</a></li>
+  </ul>
+  <p>&copy; <span data-year>2026</span> Ironbridge Strategy Group, LLC &nbsp;&bull;&nbsp; Huber Heights, Ohio</p>
 </footer>
 
 <script>
-  function submitForm(id) {
-    const name = id === 'hero' ? document.getElementById('hero-name').value.trim() : '';
-    const emailEl = document.getElementById(id === 'hero' ? 'hero-email' : 'footer-email');
-    const email = emailEl.value.trim();
+/* ────────────────────────────────────────────────────────────────────
+   Mailchimp signup — progressive enhancement.
 
-    if (!email || !email.includes('@')) {
-      emailEl.style.borderColor = '#c84c4c';
-      setTimeout(() => emailEl.style.borderColor = '', 2000);
-      return;
+   Without JavaScript each form does a normal POST to Mailchimp and the
+   visitor lands on Mailchimp's own confirmation page. With JavaScript
+   we call the same endpoint's JSONP variant (/subscribe/post-json) so
+   the visitor never leaves this page, and we report the result inline.
+
+   Mailchimp does not send CORS headers, which is why this uses JSONP
+   rather than fetch().
+   ──────────────────────────────────────────────────────────────────── */
+(function () {
+  'use strict';
+
+  var PLACEHOLDER = 'MAILCHIMP_U';
+  var TIMEOUT_MS  = 10000;
+  var callbackSeq = 0;
+
+  /* Mailchimp returns HTML inside msg (links, <a> tags). Never inject it
+     as markup — parse it and keep only the text. */
+  function toPlainText(html) {
+    try {
+      var doc = new DOMParser().parseFromString(String(html), 'text/html');
+      return (doc.body.textContent || '').replace(/^\d+\s*-\s*/, '').trim();
+    } catch (err) {
+      return '';
+    }
+  }
+
+  function setMessage(el, kind, text) {
+    if (!el) return;
+    el.className = 'form-msg' + (kind ? ' is-' + kind : '');
+    el.textContent = text || '';
+  }
+
+  /* Fires only if an analytics library is already on the page. Safe no-op
+     otherwise, so adding GA4 or GTM later needs no change here. */
+  function trackConversion(source) {
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', { method: 'mailchimp', form_location: source });
+      }
+      if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+        window.dataLayer.push({ event: 'lead_submit', form_location: source });
+      }
+    } catch (err) { /* analytics must never break the form */ }
+  }
+
+  function jsonp(url, done) {
+    var name = 'mcCallback' + (++callbackSeq);
+    var script = document.createElement('script');
+    var settled = false;
+
+    function finish(data) {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      try { delete window[name]; } catch (err) { window[name] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+      done(data);
     }
 
-    // Hide form, show thank you
-    document.getElementById(id + '-form').style.display = 'none';
-    document.getElementById(id + '-ty').style.display = 'block';
-
-    // In production: replace this with your Mailchimp/ConvertKit API call
-    console.log('Subscriber:', name, email);
+    var timer = setTimeout(function () { finish(null); }, TIMEOUT_MS);
+    window[name] = finish;
+    script.onerror = function () { finish(null); };
+    script.src = url + '&c=' + name;
+    document.body.appendChild(script);
   }
+
+  function addHoneypot(form, action) {
+    /* Mailchimp's bot trap: a field named b_<user-id>_<audience-id> that
+       must be present and empty. Both ids come straight from the action. */
+    var u  = (action.match(/[?&]u=([^&]*)/)  || [])[1];
+    var id = (action.match(/[?&]id=([^&]*)/) || [])[1];
+    if (!u || !id) return;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'mc-hp';
+    wrap.setAttribute('aria-hidden', 'true');
+
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'b_' + u + '_' + id;
+    input.value = '';
+    input.tabIndex = -1;
+    input.setAttribute('autocomplete', 'off');
+
+    wrap.appendChild(input);
+    form.appendChild(wrap);
+  }
+
+  function setupForm(form) {
+    var action = form.getAttribute('action') || '';
+    var wrapper = form.parentNode;
+    var msgEl = wrapper ? wrapper.querySelector('[data-mc-msg]') : null;
+    var emailEl = form.querySelector('input[type="email"]');
+    var button = form.querySelector('button');
+    var source = form.getAttribute('data-source') || 'unknown';
+    var configured = action.indexOf(PLACEHOLDER) === -1;
+
+    if (!configured) {
+      console.warn(
+        'Ironbridge: the ' + source + ' signup form still has placeholder ' +
+        'Mailchimp ids. Replace the form action with your audience embed URL.'
+      );
+    }
+
+    addHoneypot(form, action);
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      if (!configured) {
+        setMessage(msgEl, 'error', 'This form is not connected yet. Please email us instead.');
+        if (msgEl) msgEl.focus();
+        return;
+      }
+
+      if (emailEl) emailEl.removeAttribute('aria-invalid');
+      setMessage(msgEl, '', '');
+
+      var params = [];
+      new FormData(form).forEach(function (value, key) {
+        params.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+      });
+
+      var label = button ? button.textContent : '';
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending…';
+      }
+      form.setAttribute('aria-busy', 'true');
+
+      var url = action.replace('/subscribe/post?', '/subscribe/post-json?') + '&' + params.join('&');
+
+      jsonp(url, function (data) {
+        form.removeAttribute('aria-busy');
+        if (button) {
+          button.disabled = false;
+          button.textContent = label;
+        }
+
+        if (data && data.result === 'success') {
+          form.hidden = true;
+          setMessage(msgEl, 'success', 'Mission confirmed. Check your inbox for the Battle Rhythm Planner.');
+          if (msgEl) msgEl.focus();
+          trackConversion(source);
+          return;
+        }
+
+        /* Any failure leaves the form in place so the visitor can retry. */
+        var text = data && data.msg ? toPlainText(data.msg) : '';
+
+        if (/already subscribed/i.test(text)) {
+          text = 'You are already on the list — check your inbox for the planner.';
+        } else if (!text) {
+          text = 'We could not reach the server. Please check your connection and try again.';
+        }
+
+        if (emailEl && /email/i.test(text)) emailEl.setAttribute('aria-invalid', 'true');
+        setMessage(msgEl, 'error', text);
+        if (msgEl) msgEl.focus();
+      });
+    });
+  }
+
+  var forms = document.querySelectorAll('[data-mc-form]');
+  for (var i = 0; i < forms.length; i++) setupForm(forms[i]);
+
+  var years = document.querySelectorAll('[data-year]');
+  for (var j = 0; j < years.length; j++) {
+    years[j].textContent = new Date().getFullYear();
+  }
+})();
 </script>
 
 </body>
