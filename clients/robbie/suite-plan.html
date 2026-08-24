@@ -1,0 +1,974 @@
+<title>Robbie's Suite Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#F4F3EE;
+  --surface:#FCFBF8;
+  --surface-2:#EDEBE3;
+  --ink:#14282B;
+  --body:#28393B;
+  --muted:#5E6B67;
+  --rule:#DCD9CD;
+  --rule-strong:#C3BFAF;
+  --brass:#9A6B22;
+  --brass-soft:#E5D5B4;
+  --sage:#3F6E60;
+  --clay:#8A4B44;
+  --shadow:rgba(20,40,43,.07);
+
+  --f-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-body:'Karla',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --measure:68ch;
+  --wide:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1719;
+    --surface:#152225;
+    --surface-2:#1B2C2F;
+    --ink:#EBEAE2;
+    --body:#CDD4D0;
+    --muted:#8FA09B;
+    --rule:#26383B;
+    --rule-strong:#375054;
+    --brass:#D9A051;
+    --brass-soft:#3A2E18;
+    --sage:#79B3A0;
+    --clay:#CC8078;
+    --shadow:rgba(0,0,0,.34);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1719;
+  --surface:#152225;
+  --surface-2:#1B2C2F;
+  --ink:#EBEAE2;
+  --body:#CDD4D0;
+  --muted:#8FA09B;
+  --rule:#26383B;
+  --rule-strong:#375054;
+  --brass:#D9A051;
+  --brass-soft:#3A2E18;
+  --sage:#79B3A0;
+  --clay:#CC8078;
+  --shadow:rgba(0,0,0,.34);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--body);
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+h1,h2,h3,h4{font-family:var(--f-display);color:var(--ink);text-wrap:balance;margin:0;line-height:1.14;font-weight:600}
+p{margin:0}
+a{color:var(--brass);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.wrap{max-width:var(--wide);margin:0 auto;padding:0 24px}
+.col{max-width:var(--measure)}
+section{padding:64px 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.stack{display:flex;flex-direction:column;gap:20px}
+.stack-sm{display:flex;flex-direction:column;gap:12px}
+.stack-lg{display:flex;flex-direction:column;gap:34px}
+
+/* ---------- masthead ---------- */
+header.mast{padding:64px 0 40px;background:var(--surface);border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brass);display:block;margin-bottom:18px;font-weight:500;
+}
+h1{font-size:clamp(40px,7vw,68px);letter-spacing:-.015em;margin-bottom:18px}
+h1 em{font-style:italic;color:var(--brass);font-weight:400}
+.lede{font-size:clamp(18px,2.2vw,21px);color:var(--muted);line-height:1.55;max-width:60ch}
+.byline{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:28px;letter-spacing:.04em}
+
+/* ---------- sticky nav ---------- */
+nav.jump{
+  position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+nav.jump .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:thin}
+nav.jump a{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;white-space:nowrap;padding:6px 11px;border:1px solid transparent;border-radius:3px;
+}
+nav.jump a:hover{color:var(--ink);border-color:var(--rule-strong);background:var(--surface)}
+
+/* ---------- headings ---------- */
+.phase-tag{
+  display:inline-flex;align-items:baseline;gap:10px;font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+}
+.phase-tag b{color:var(--brass);font-weight:500;font-size:13px}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.01em;margin-bottom:14px}
+h3{font-size:22px;margin-bottom:8px}
+h4{font-size:16px;font-family:var(--f-body);font-weight:700;letter-spacing:.005em;margin-bottom:6px}
+.sub{color:var(--muted);font-size:17px}
+
+/* ---------- rope divider ---------- */
+.rope{display:block;width:100%;height:22px;color:var(--rule-strong);opacity:.85;margin:0}
+
+/* ---------- callout ---------- */
+.callout{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:24px 26px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.callout.brass{border-color:var(--brass);background:var(--surface)}
+.callout .k{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:500;
+}
+.callout.warn .k{color:var(--clay)}
+.callout.warn{border-color:var(--clay)}
+
+/* ---------- number strip ---------- */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.fig{background:var(--surface);padding:20px 18px;display:flex;flex-direction:column;gap:5px}
+.fig .n{font-family:var(--f-display);font-size:30px;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.fig .l{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- tables ---------- */
+.scroller{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--surface-2);border-bottom:1px solid var(--rule-strong);
+}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:14px}
+tr.total td{font-weight:700;color:var(--ink);background:var(--surface-2);border-top:1px solid var(--rule-strong)}
+.rank{font-family:var(--f-mono);color:var(--brass);font-weight:500}
+
+/* ---------- prompt block ---------- */
+.prompt{
+  border:1px solid var(--rule);border-left:2px solid var(--brass);border-radius:4px;
+  background:var(--surface);overflow:hidden;
+}
+.prompt-head{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:9px 14px;background:var(--surface-2);border-bottom:1px solid var(--rule);
+}
+.prompt-head span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.prompt-head button{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--rule-strong);color:var(--muted);
+  padding:4px 10px;border-radius:3px;cursor:pointer;transition:.15s;
+}
+.prompt-head button:hover{color:var(--ink);border-color:var(--brass)}
+.prompt-head button[data-done="1"]{color:var(--sage);border-color:var(--sage)}
+.prompt pre{
+  margin:0;padding:16px 18px;font-family:var(--f-mono);font-size:13.5px;line-height:1.62;
+  color:var(--body);white-space:pre-wrap;word-break:break-word;
+}
+
+/* ---------- checklist ---------- */
+ul.check{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+ul.check li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+ul.check li::before{
+  content:"";flex:0 0 auto;width:13px;height:13px;margin-top:6px;
+  border:1.5px solid var(--rule-strong);border-radius:2px;
+}
+ul.check li b{color:var(--ink)}
+ol.steps{margin:0;padding-left:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:18px}
+ol.steps li{counter-increment:s;display:flex;gap:16px}
+ol.steps li::before{
+  content:counter(s);flex:0 0 auto;font-family:var(--f-mono);font-size:12px;color:var(--brass);
+  width:26px;height:26px;border:1px solid var(--rule-strong);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+
+/* ---------- cards ---------- */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:9px}
+.card .tag{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.card p{font-size:15.5px;color:var(--muted)}
+
+/* ---------- calculator ---------- */
+.calc{background:var(--surface);border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.calc-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;padding:24px;border-bottom:1px solid var(--rule)}
+.calc-in label{display:flex;flex-direction:column;gap:7px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.calc-in input{
+  font-family:var(--f-mono);font-size:19px;font-variant-numeric:tabular-nums;
+  background:var(--paper);color:var(--ink);border:1px solid var(--rule-strong);border-radius:3px;
+  padding:9px 11px;width:100%;
+}
+.calc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule)}
+.calc-out div{background:var(--surface-2);padding:20px 18px;display:flex;flex-direction:column;gap:5px}
+.calc-out .n{font-family:var(--f-display);font-size:28px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1}
+.calc-out .n.good{color:var(--sage)}
+.calc-out .n.bad{color:var(--clay)}
+.calc-out .l{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.calc-note{padding:14px 24px;font-size:14px;color:var(--muted);border-top:1px solid var(--rule)}
+
+/* ---------- footer ---------- */
+footer{background:var(--surface);border-top:1px solid var(--rule);padding:48px 0 60px;margin-top:0}
+footer .fine{font-size:14px;color:var(--muted);max-width:70ch}
+footer .fine + .fine{margin-top:12px}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:48px 0}
+  .wrap{padding:0 18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="eyebrow">A plan for Robbie &middot; Columbus, Ohio</span>
+    <h1>Four clients a week <em>pays the rent.</em></h1>
+    <p class="lede">Everything after that is yours. Here is the honest path from where you are now to a suite with your name on the door &mdash; what it costs, where to put it, how to fill it, and exactly what to hand Claude at every step.</p>
+    <p class="byline">Prepared 24 August 2026 &middot; Ironbridge Strategy Group</p>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap">
+    <a href="#truth">Straight talk</a>
+    <a href="#math">The math</a>
+    <a href="#phase0">Phase 0 &middot; Get ready</a>
+    <a href="#phase1">Phase 1 &middot; Pick the suite</a>
+    <a href="#phase2">Phase 2 &middot; Open</a>
+    <a href="#phase3">Phase 3 &middot; Fill the chair</a>
+    <a href="#phase4">Phase 4 &middot; Years 2&ndash;5</a>
+    <a href="#money">Money</a>
+    <a href="#legal">Ohio rules</a>
+    <a href="#start">Start here</a>
+  </div>
+</nav>
+
+<!-- ============ STRAIGHT TALK ============ -->
+<section id="truth">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>First</b> <span>the thing nobody tells you</span></div>
+      <h2>You don't buy a Sola suite. You license one &mdash; and that's good news.</h2>
+      <p>Sola Salon Studios doesn't sell individual suites to stylists. You sign a rental agreement and pay a flat weekly rate. The suite already comes with the sink, the cabinetry, the mirror, and the core fixtures, and the weekly rate covers utilities, Wi-Fi, and laundry. That's the "chair and sink and stuff" you're picturing &mdash; it's included, not purchased.</p>
+      <p>The only thing you can actually <em>buy</em> from Sola is a franchise: the whole building, thirty-plus suites, and you'd become a landlord instead of a loctician. That's a different life and a different budget.</p>
+      <p>Here's why the license is the better deal for you. Buying a building means a mortgage, a roof, a parking lot, and a bank that wants to see two years of tax returns before it will talk to you. Licensing a suite means <strong>your own locked door, your own name, your own prices, your own hours</strong> &mdash; for around the cost of a car payment, starting the week you sign. The permanence you want doesn't come from a deed. It comes from a full book and a brand clients follow.</p>
+    </div>
+
+    <svg class="rope" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M0,10 C12.5,2 12.5,18 25,10 C37.5,2 37.5,18 50,10 C62.5,2 62.5,18 75,10 C87.5,2 87.5,18 100,10 C112.5,2 112.5,18 125,10 C137.5,2 137.5,18 150,10 C162.5,2 162.5,18 175,10 C187.5,2 187.5,18 200,10 C212.5,2 212.5,18 225,10 C237.5,2 237.5,18 250,10 C262.5,2 262.5,18 275,10 C287.5,2 287.5,18 300,10 C312.5,2 312.5,18 325,10 C337.5,2 337.5,18 350,10 C362.5,2 362.5,18 375,10 C387.5,2 387.5,18 400,10"/>
+        <path d="M0,10 C12.5,18 12.5,2 25,10 C37.5,18 37.5,2 50,10 C62.5,18 62.5,2 75,10 C87.5,18 87.5,2 100,10 C112.5,18 112.5,2 125,10 C137.5,18 137.5,2 150,10 C162.5,18 162.5,2 175,10 C187.5,18 187.5,2 200,10 C212.5,18 212.5,2 225,10 C237.5,18 237.5,2 250,10 C262.5,18 262.5,2 275,10 C287.5,18 287.5,2 300,10 C312.5,18 312.5,2 325,10 C337.5,18 337.5,2 350,10 C362.5,18 362.5,2 375,10 C387.5,18 387.5,2 400,10"/>
+      </g>
+    </svg>
+
+    <div class="col stack">
+      <h3>So the goal gets rewritten &mdash; sharper, and reachable this year</h3>
+      <p class="sub">Not "buy a salon in five years." Instead:</p>
+      <div class="callout brass">
+        <span class="k">The actual mission</span>
+        <p style="font-family:var(--f-display);font-size:20px;color:var(--ink);line-height:1.45">Move into my own Sola suite in Columbus within twelve months, and spend the four years after that turning it into a six-figure loc business &mdash; through price, product, teaching, and a second chair &mdash; without ever taking on a mortgage.</p>
+      </div>
+      <p>Five years of that path, at the numbers on this page, is roughly <strong>$394,000 in cumulative owner earnings before tax</strong> &mdash; and no debt, no building, no landlord headaches. A building would have eaten most of that in down payment, interest, and repairs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE MATH ============ -->
+<section id="math">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>The math</b> <span>before anything else</span></div>
+      <h2>The break-even number</h2>
+      <p>Suite rentals in the Columbus market run roughly <strong>$250&ndash;$500 a week</strong>, and Sola nationally runs $300&ndash;$600 depending on location and suite size. Assume $400/week for planning until you get a real quote. Against Columbus loc pricing &mdash; retwists commonly start at $125 and run up from there, starter locs $400 partial to $800 full head &mdash; the number lands here:</p>
+    </div>
+
+    <div class="figs">
+      <div class="fig"><span class="n">4</span><span class="l">clients / week to break even</span></div>
+      <div class="fig"><span class="n">$2,321</span><span class="l">monthly break-even revenue</span></div>
+      <div class="fig"><span class="n">$2,075</span><span class="l">fixed cost per month</span></div>
+      <div class="fig"><span class="n">10.6%</span><span class="l">variable cost of each service</span></div>
+    </div>
+
+    <div class="col"><p>Four clients a week. If you're doing a retwist on Tuesday, Wednesday, Thursday and Saturday, the suite is paid for and every client after that is profit. Change the numbers below to your own and watch what happens.</p></div>
+
+    <div class="calc">
+      <div class="calc-in">
+        <label>Suite rent / week
+          <input type="number" id="rent" value="400" min="0" step="25" inputmode="numeric">
+        </label>
+        <label>Average ticket
+          <input type="number" id="ticket" value="135" min="1" step="5" inputmode="numeric">
+        </label>
+        <label>Clients / week
+          <input type="number" id="clients" value="12" min="0" step="1" inputmode="numeric">
+        </label>
+        <label>Other fixed / month
+          <input type="number" id="fixed" value="342" min="0" step="25" inputmode="numeric">
+        </label>
+      </div>
+      <div class="calc-out">
+        <div><span class="n" id="o-be">4.0</span><span class="l">clients / wk to break even</span></div>
+        <div><span class="n" id="o-rev">$7,020</span><span class="l">revenue / month</span></div>
+        <div><span class="n" id="o-profit">$4,201</span><span class="l">your pay / month</span></div>
+        <div><span class="n" id="o-year">$50,412</span><span class="l">your pay / year</span></div>
+      </div>
+      <p class="calc-note">"Your pay" is pre-tax owner earnings. As a self-employed loctician, set aside 25&ndash;30% of it for federal, state, city, and self-employment tax. Variable cost is modelled at 10.6% of service revenue &mdash; 8% product and backbar, 2.6% card processing.</p>
+    </div>
+
+    <div class="col">
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude</span><button type="button" data-copy>Copy</button></div>
+<pre>I'm a loctician in Columbus, Ohio moving into a salon suite. My weekly
+suite rent will be $____. Here is my service menu and current prices:
+[paste menu]. Here is what I did in revenue the last 3 months: [paste].
+
+Build me a month-by-month cash flow for my first 12 months in the suite.
+Show break-even, the month I clear $5K in take-home, and how much I need
+in the bank before I sign anything. Flag every assumption you had to make
+and tell me which one, if it's wrong, hurts me most.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASE 0 ============ -->
+<section id="phase0">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Phase 0</b> <span>days 1&ndash;90 &middot; get your house in order</span></div>
+      <h2>Before you tour a single suite</h2>
+      <p>Every one of these takes an evening, costs almost nothing, and makes you look like a business instead of a hobby when you walk into the leasing office.</p>
+    </div>
+
+    <div class="col">
+      <ol class="steps">
+        <li><div class="stack-sm"><h4>Form the LLC</h4><p class="sub">Ohio Secretary of State, $99, online, same week. Protects your personal assets and is what the suite agreement should be signed by.</p></div></li>
+        <li><div class="stack-sm"><h4>Get the EIN</h4><p class="sub">Free from the IRS, takes ten minutes. You need it for the business bank account and to stop giving out your Social Security number.</p></div></li>
+        <li><div class="stack-sm"><h4>Open a business checking account</h4><p class="sub">Separate from personal. This is the single biggest thing standing between you and a lender or a clean tax return.</p></div></li>
+        <li><div class="stack-sm"><h4>Get your bookkeeping honest</h4><p class="sub">Every dollar in, every dollar out, from today forward. Cash tips included. If you ever want a $15K launch loan, this is the file they read.</p></div></li>
+        <li><div class="stack-sm"><h4>Move your book onto real software</h4><p class="sub">GlossGenius, Vagaro, Booksy, or Square &mdash; pick one and put every client in it with a phone number and email. That list is the actual asset. Not the chair.</p></div></li>
+        <li><div class="stack-sm"><h4>Count your money honestly</h4><p class="sub">Target $5,300 lean or $12,600 comfortable to open. The table further down breaks out every line.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="col stack">
+      <div class="callout warn">
+        <span class="k">Check this first</span>
+        <p>If you're renting a booth or chair somewhere now, read your current agreement for a <strong>non-compete or non-solicitation clause</strong> before you tell a single client you're moving. Some salon agreements claim the client list. Know what you signed.</p>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; contract check</span><button type="button" data-copy>Copy</button></div>
+<pre>Here is the booth rental agreement I signed with my current salon:
+[paste or upload it].
+
+Tell me in plain English: (1) can I be stopped from taking my clients
+with me, (2) how much notice do I owe, (3) do I owe anything on the way
+out, (4) is there anything in here that would follow me to a new suite.
+Quote the exact language for each answer.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; know your book</span><button type="button" data-copy>Copy</button></div>
+<pre>Attached is the client export from my booking app.
+
+Analyze it and tell me: how many clients are actually active (came in the
+last 6 months), how much each one is worth per year, my rebooking rate,
+my no-show rate, and which 20 clients produce the most revenue. Then tell
+me which clients are at risk of not following me to a new location and
+what I should say to them first.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="rope" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.1">
+    <path d="M0,10 C12.5,2 12.5,18 25,10 C37.5,2 37.5,18 50,10 C62.5,2 62.5,18 75,10 C87.5,2 87.5,18 100,10 C112.5,2 112.5,18 125,10 C137.5,2 137.5,18 150,10 C162.5,2 162.5,18 175,10 C187.5,2 187.5,18 200,10 C212.5,2 212.5,18 225,10 C237.5,2 237.5,18 250,10 C262.5,2 262.5,18 275,10 C287.5,2 287.5,18 300,10 C312.5,2 312.5,18 325,10 C337.5,2 337.5,18 350,10 C362.5,2 362.5,18 375,10 C387.5,2 387.5,18 400,10"/>
+    <path d="M0,10 C12.5,18 12.5,2 25,10 C37.5,18 37.5,2 50,10 C62.5,18 62.5,2 75,10 C87.5,18 87.5,2 100,10 C112.5,18 112.5,2 125,10 C137.5,18 137.5,2 150,10 C162.5,18 162.5,2 175,10 C187.5,18 187.5,2 200,10 C212.5,18 212.5,2 225,10 C237.5,18 237.5,2 250,10 C262.5,18 262.5,2 275,10 C287.5,18 287.5,2 300,10 C312.5,18 312.5,2 325,10 C337.5,18 337.5,2 350,10 C362.5,18 362.5,2 375,10 C387.5,18 387.5,2 400,10"/>
+  </g>
+</svg>
+
+<!-- ============ PHASE 1 ============ -->
+<section id="phase1">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Phase 1</b> <span>months 2&ndash;4 &middot; pick the suite</span></div>
+      <h2>Where to put it in Columbus</h2>
+      <p>Start with the insight that changes everything: <strong>locs are a destination service.</strong> A retwist is two to three hours. Starter locs can be six. Nobody picks a loctician because they drove past the sign &mdash; they pick you, then they drive. That means you are not paying for foot traffic. You are paying for highway access, safe parking, privacy, and a room that photographs well.</p>
+      <p>So rank by where your clients <em>live and earn</em>, not by mall traffic. Here's the Columbus metro, ranked for a loctician.</p>
+    </div>
+
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Rank</th><th>Location</th><th>Address</th><th>Why</th><th>Watch out</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank">01</td>
+            <td><b>Sola &mdash; New Albany</b></td>
+            <td>5566 N Hamilton Rd<br>Columbus, OH 43230</td>
+            <td>The best draw in the metro for your client base. Sits in the Gahanna / New Albany corridor with easy 161 and 270 access, and pulls from Gahanna (17% Black, $109K median household income), Blacklick, Reynoldsburg (32% Black), and all of northeast Columbus. High-income Black professional households, short drive from the east side.</td>
+            <td>Likely the most in-demand of the three. Ask about the waitlist early.</td>
+          </tr>
+          <tr>
+            <td class="rank">02</td>
+            <td><b>Sola &mdash; Westerville</b></td>
+            <td>89 Westerville Plaza<br>Westerville, OH</td>
+            <td>North side, close to the Northland and Karl Road corridor with a large Black and African immigrant population. Solid incomes, quieter plaza, usually easier to get into.</td>
+            <td>Less premium than New Albany. Confirm suite sizes &mdash; you want room for a dryer and a steamer.</td>
+          </tr>
+          <tr>
+            <td class="rank">03</td>
+            <td><b>Sola &mdash; Polaris</b></td>
+            <td>1158 Polaris Pkwy<br>Columbus, OH 43240</td>
+            <td>Highest-traffic retail address of the three and an affluent catchment. Great for a walk-in-driven specialty.</td>
+            <td>Furthest north. For east-side loc clients it's the longest drive, and you don't need the walk-in traffic you'd be paying for.</td>
+          </tr>
+          <tr>
+            <td class="rank">&mdash;</td>
+            <td><b>Phenix Salon Suites</b></td>
+            <td>1134 W Henderson Rd<br>Columbus, OH 43220</td>
+            <td>Backup option. Month-to-month agreements, 24/7 access, no long lock-in &mdash; the lowest-risk way to test suite life if Sola has a waitlist.</td>
+            <td>Northwest side, further from your likely base.</td>
+          </tr>
+          <tr>
+            <td class="rank">&mdash;</td>
+            <td><b>My Salon Suite</b></td>
+            <td>Polaris / Lewis Center</td>
+            <td>Backup option. Fully equipped suites, similar model and price band.</td>
+            <td>Same northern-geography tradeoff as Sola Polaris.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col stack">
+      <div class="callout">
+        <span class="k">The gap worth knowing</span>
+        <p>There is no major suite complex sitting directly in the Livingston / Whitehall / East Main or Linden corridors, where a large share of Columbus's Black population lives. New Albany on N Hamilton Rd is the closest premium option to that base &mdash; which is exactly why it ranks first, and why pricing yourself as a destination studio rather than a neighborhood shop is the right call.</p>
+      </div>
+      <p><strong>All three Sola Columbus locations answer at (614) 450-1885.</strong> Call, ask for a tour at each, and go to all three before deciding. Tour on a weekday afternoon and a Saturday &mdash; you want to see it busy.</p>
+    </div>
+
+    <div class="col stack">
+      <h3>What to ask on the tour</h3>
+      <ul class="check">
+        <li><b>Exact weekly rate</b> for the suite size you want &mdash; and what a bigger one costs, in case you want a double later.</li>
+        <li><b>What's included and what isn't.</b> Utilities, Wi-Fi, laundry are typically covered. Confirm the shampoo bowl and hot water &mdash; not every suite is plumbed, and you cannot do locs without a sink.</li>
+        <li><b>Water pressure and hot water recovery</b> &mdash; run the tap. You wash a lot of hair.</li>
+        <li><b>Ventilation in the suite itself,</b> for steam and product.</li>
+        <li><b>Deposit, term length, notice to leave, and annual rate increases.</b> Get the escalation number in writing.</li>
+        <li><b>Is there another loctician in the building?</b> Ask directly. Ask whether there's any exclusivity by specialty.</li>
+        <li><b>Move-in incentives.</b> Reduced or free first weeks are common &mdash; ask, every time.</li>
+        <li><b>Who holds the Ohio salon license</b> for the suite address, and what they need from you.</li>
+        <li><b>Parking after dark,</b> door security, and 24/7 access &mdash; you will have late appointments.</li>
+        <li><b>Signage rights</b> and whether you can paint and brand the suite.</li>
+      </ul>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; read the agreement</span><button type="button" data-copy>Copy</button></div>
+<pre>Here is the salon suite rental agreement they gave me: [upload it].
+
+Go through it like you're on my side of the table. Tell me: the true
+all-in monthly cost including anything not in the headline rate, how
+rent increases work, what happens if I need to leave early, what I'm
+liable for, and anything unusual compared to a standard salon suite
+agreement. Then give me a short list of things to negotiate and the
+exact words to use.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; compare them side by side</span><button type="button" data-copy>Copy</button></div>
+<pre>I toured three suites. Here are my notes and the numbers from each:
+[paste notes].
+
+Build me a comparison table scoring each on total monthly cost, suite
+size, sink and water quality, drive time for my top 20 clients, parking
+and safety, and how much I can brand it. Weight it for a loctician doing
+2-6 hour appointments. Then tell me which one you'd sign and why.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASE 2 ============ -->
+<section id="phase2">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Phase 2</b> <span>the 30 days around move-in &middot; open</span></div>
+      <h2>Set it up so it runs itself</h2>
+      <p>The suite is empty and yours. What you decide in these thirty days &mdash; your prices, your policies, your booking flow &mdash; is what you'll live with for years. Get it right once.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">Menu &amp; price</span>
+        <h4>Reprice on the way in</h4>
+        <p>Moving is the only moment you can raise prices without explaining yourself. Columbus retwists commonly start at $125; starter locs run $400 partial to $800 full head. Build a menu with a clear ladder &mdash; retwist, retwist with interlock, detox, repair, starter locs, consultation &mdash; and price the top of your range where you're best.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Policies</span>
+        <h4>Deposits stop no-shows</h4>
+        <p>A no-show on a four-hour starter loc appointment is a $400 hole in your week. Non-refundable deposit at booking, 48-hour cancellation window, late arrival grace of 15 minutes. Write it once, put it in the booking flow, enforce it without apology.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Booking</span>
+        <h4>Take yourself out of the loop</h4>
+        <p>Online booking with deposits, automatic reminders at 72 and 24 hours, a consultation form that asks about scalp condition and loc history before they arrive. Stop booking clients through Instagram DMs.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The room</span>
+        <h4>Build it for photos and for hours</h4>
+        <p>Clients sit in your chair for hours &mdash; comfort is retention. And every square foot is a backdrop. One good lighting setup, one clean branded wall, plants, a place for their bag, somewhere to charge a phone.</p>
+      </div>
+    </div>
+
+    <div class="col stack">
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; menu and pricing</span><button type="button" data-copy>Copy</button></div>
+<pre>I'm a loctician opening a suite in Columbus. Current prices: [list].
+Typical appointment lengths: [list]. My specialty is: [describe].
+
+Build me a full service menu with new prices for the move, structured so
+clients can trade up. Show me my effective hourly rate on each service and
+flag anything where I'm underpaid for the time. Then write the short,
+warm message I send to existing clients explaining the new prices without
+apologizing for them.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; policies and forms</span><button type="button" data-copy>Copy</button></div>
+<pre>Write my salon policies as a client-facing page: deposits, cancellation,
+late arrival, no-show, kids, guests, and what to arrive with for a loc
+appointment. Warm but firm - I want to be kind and still get paid.
+
+Then write: (1) a new client consultation form for loc services covering
+scalp and hair history, (2) the confirmation text clients get at booking,
+(3) the 24-hour reminder text.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; design and outfit the room</span><button type="button" data-copy>Copy</button></div>
+<pre>My suite is roughly ___ ft by ___ ft with the sink on the ___ wall.
+Budget for furnishing it: $____. I do locs - retwists, starter locs,
+detox - with appointments of 2 to 6 hours.
+
+Give me a layout, a color and materials direction that photographs well,
+and an itemized shopping list that fits the budget, marked buy-now vs
+buy-later. Include the hooded dryer, steamer, storage, and client comfort.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHASE 3 ============ -->
+<section id="phase3">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Phase 3</b> <span>ongoing &middot; fill the chair</span></div>
+      <h2>Getting from four clients a week to sixteen</h2>
+      <p>Marketing for a loctician isn't complicated, it's just relentless. Five things, in order of how much money they make you:</p>
+    </div>
+
+    <div class="col">
+      <ol class="steps">
+        <li><div class="stack-sm"><h4>Rebook before they leave the chair</h4><p class="sub">The highest-ROI sentence in your business is "same time in six weeks?" said while you're taking the cape off. A loc client on a six-week cycle is roughly $1,100 a year. Getting rebooking from 40% to 80% is worth more than any ad you'll ever run.</p></div></li>
+        <li><div class="stack-sm"><h4>Win back the ones who drifted</h4><p class="sub">You already have clients who stopped coming for no real reason. A short, personal text brings a chunk of them back for free. Do this the week you open.</p></div></li>
+        <li><div class="stack-sm"><h4>Own your Google Business Profile</h4><p class="sub">"Loctician near me" is how new clients find you in Columbus. Claim it, load it with real photos of your work, post weekly, and ask every happy client for a review by text within an hour of their appointment.</p></div></li>
+        <li><div class="stack-sm"><h4>Post transformations, not selfies</h4><p class="sub">Before and after, start to finish, scalp close-ups, loc care tips. Instagram and TikTok. Consistency beats production value &mdash; three posts a week for a year will outperform anything fancier.</p></div></li>
+        <li><div class="stack-sm"><h4>Pay your clients to refer</h4><p class="sub">$25 off their next retwist for every new client they send. Cheaper than any ad, and loc clients talk to each other constantly.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="col stack">
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; the launch campaign</span><button type="button" data-copy>Copy</button></div>
+<pre>I open my new suite at [address] on [date]. My clients are Black women
+in Columbus, ages 25-55, who wear locs.
+
+Build me a 30-day launch: the announcement post, a countdown series, the
+opening-week offer, the text I send existing clients, the email version,
+and a grand-opening idea that actually gets people through the door.
+Give me exact captions and exact text message wording I can send today.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; 90 days of content</span><button type="button" data-copy>Copy</button></div>
+<pre>Plan 90 days of Instagram and TikTok content for a Columbus loctician,
+3 posts a week. Mix transformations, loc care education, behind the
+scenes, client stories, and booking calls-to-action.
+
+For each post give me the hook, the caption, the shot list, and the
+hashtags. Front-load the ones most likely to bring in new clients.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; win back and rebook</span><button type="button" data-copy>Copy</button></div>
+<pre>Here's my client list with last-visit dates: [paste].
+
+Sort them into: due now, overdue, and gone quiet. Write me a different
+text for each group - personal, short, no discount language for the first
+two. Then write the exact rebooking script I say in the chair, plus what
+to say when a client says "I'll text you to schedule."</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; reviews and Google</span><button type="button" data-copy>Copy</button></div>
+<pre>Write my Google Business Profile description, services list, and
+attributes for a loctician suite in Columbus, Ohio - optimized so I show
+up for "loctician near me," "retwist Columbus," and "starter locs
+Columbus."
+
+Then give me the review request text I send an hour after an appointment,
+and how to respond to a 5-star and a 2-star review.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="rope" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.1">
+    <path d="M0,10 C12.5,2 12.5,18 25,10 C37.5,2 37.5,18 50,10 C62.5,2 62.5,18 75,10 C87.5,2 87.5,18 100,10 C112.5,2 112.5,18 125,10 C137.5,2 137.5,18 150,10 C162.5,2 162.5,18 175,10 C187.5,2 187.5,18 200,10 C212.5,2 212.5,18 225,10 C237.5,2 237.5,18 250,10 C262.5,2 262.5,18 275,10 C287.5,2 287.5,18 300,10 C312.5,2 312.5,18 325,10 C337.5,2 337.5,18 350,10 C362.5,2 362.5,18 375,10 C387.5,2 387.5,18 400,10"/>
+    <path d="M0,10 C12.5,18 12.5,2 25,10 C37.5,18 37.5,2 50,10 C62.5,18 62.5,2 75,10 C87.5,18 87.5,2 100,10 C112.5,18 112.5,2 125,10 C137.5,18 137.5,2 150,10 C162.5,18 162.5,2 175,10 C187.5,18 187.5,2 200,10 C212.5,18 212.5,2 225,10 C237.5,18 237.5,2 250,10 C262.5,18 262.5,2 275,10 C287.5,18 287.5,2 300,10 C312.5,18 312.5,2 325,10 C337.5,18 337.5,2 350,10 C362.5,18 362.5,2 375,10 C387.5,18 387.5,2 400,10"/>
+  </g>
+</svg>
+
+<!-- ============ PHASE 4 ============ -->
+<section id="phase4">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Phase 4</b> <span>years 2&ndash;5 &middot; own it without buying it</span></div>
+      <h2>Five levers that take one chair to six figures</h2>
+      <p>You chose to stay in the suite rather than buy a building. That's the right call &mdash; but it only pays off if you use the money you're not spending on a mortgage to build income that isn't your two hands. There are exactly five levers.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">Lever 01 &middot; price</span>
+        <h4>Raise prices every single year</h4>
+        <p>$135 to $175 over four years is about 7% a year. On a full book that alone is roughly $33,000 more a year, with zero extra hours. Announce it once, in writing, six weeks ahead. The clients who leave over $10 were never your clients.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Lever 02 &middot; product</span>
+        <h4>Sell what they're already buying</h4>
+        <p>Every loc client buys oil, shampoo, and gel from someone. Make it you. Retail carries roughly 45% margin and takes no extra chair time. Target $16,000 a year by year five &mdash; or private-label it under your own name and take more.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Lever 03 &middot; recurring</span>
+        <h4>Turn retwists into memberships</h4>
+        <p>A prepaid six-week maintenance plan &mdash; retwist plus product, billed monthly. It locks the calendar, smooths cash flow, and makes leaving you feel like cancelling a subscription.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Lever 04 &middot; teaching</span>
+        <h4>Teach what you know</h4>
+        <p>The highest-margin income you will ever earn. Loc care workshops for clients, technique classes for other stylists, a digital loc care guide. Nearly pure profit and it runs whether you're in the chair or not. Modelled at $20,000 by year five &mdash; and that's conservative.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Lever 05 &middot; a second pair of hands</span>
+        <h4>Take a double suite</h4>
+        <p>When you're turning clients away, move to a double and bring in a second loctician. Get the structure right first &mdash; Ohio has specific rules about independent contractors versus employees, and the wrong setup is a tax problem, not a small one.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The point</span>
+        <h4>Four of the five don't need your hands</h4>
+        <p>Price, product, memberships, and teaching all scale without adding hours. That's how one chair becomes a real business &mdash; and why you never needed the building.</p>
+      </div>
+    </div>
+
+    <div class="col stack">
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; build the education line</span><button type="button" data-copy>Copy</button></div>
+<pre>I want to add teaching income to my loc business. I'm strongest at
+[technique]. Design three products: a 2-hour loc care workshop for my
+own clients, a one-day technique class for other stylists, and a digital
+loc care guide I sell online.
+
+For each: outline, price, how many I need to sell to hit $1,000/month,
+and how to fill the first one. Then build me the first workshop's full
+curriculum and handout.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; annual price increase</span><button type="button" data-copy>Copy</button></div>
+<pre>Current prices: [list]. It's been [months] since I raised them. My costs
+went up [amount] and I'm booked [x] weeks out.
+
+Tell me how much to raise each service and write the announcement I send
+clients six weeks ahead - confident, not apologetic. Also write what I
+say to the one client who pushes back.</pre>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; second chair, done right</span><button type="button" data-copy>Copy</button></div>
+<pre>I want to add a second loctician in a double suite in Ohio.
+
+Compare the options: independent contractor renting from me, commission
+employee, and hourly employee. For each, tell me the Ohio licensing that
+person needs, what I'd owe in taxes and insurance, what could go wrong,
+and roughly what I'd clear per month. Recommend one for a first hire,
+and tell me what to verify with the Ohio Cosmetology and Barber Board
+and a CPA before I commit.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MONEY ============ -->
+<section id="money">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>The money</b> <span>startup, five-year model, funding</span></div>
+      <h2>What it costs and what it makes</h2>
+      <p class="sub">Two ways to open. Lean gets the door open. Comfortable gets it open without you lying awake.</p>
+    </div>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th>To open the door</th><th class="num">Lean</th><th class="num">Comfortable</th></tr></thead>
+        <tbody>
+          <tr><td>Deposit + first two weeks rent</td><td class="num">$1,200</td><td class="num">$1,600</td></tr>
+          <tr><td>Ohio LLC filing</td><td class="num">$99</td><td class="num">$99</td></tr>
+          <tr><td>Licensing &mdash; salon + independent contractor</td><td class="num">$150</td><td class="num">$250</td></tr>
+          <tr><td>Liability &amp; professional insurance, year one</td><td class="num">$200</td><td class="num">$500</td></tr>
+          <tr><td>Hooded dryer</td><td class="num">$300</td><td class="num">$900</td></tr>
+          <tr><td>Steamer</td><td class="num">$150</td><td class="num">$400</td></tr>
+          <tr><td>Rolling cart, shelving, storage</td><td class="num">$180</td><td class="num">$500</td></tr>
+          <tr><td>Lighting, decor, art, plants</td><td class="num">$250</td><td class="num">$900</td></tr>
+          <tr><td>Towels, capes, linens</td><td class="num">$150</td><td class="num">$350</td></tr>
+          <tr><td>Tools &mdash; clips, combs, interlocking tools</td><td class="num">$200</td><td class="num">$400</td></tr>
+          <tr><td>Backbar product inventory</td><td class="num">$400</td><td class="num">$800</td></tr>
+          <tr><td>Retail inventory</td><td class="num">$0</td><td class="num">$800</td></tr>
+          <tr><td>Booking software setup</td><td class="num">$100</td><td class="num">$200</td></tr>
+          <tr><td>Signage, logo, business cards</td><td class="num">$250</td><td class="num">$900</td></tr>
+          <tr><td>Website</td><td class="num">$0</td><td class="num">$500</td></tr>
+          <tr><td>Cash cushion &mdash; rent with no income</td><td class="num">$1,700</td><td class="num">$3,500</td></tr>
+          <tr class="total"><td>Total to open</td><td class="num">$5,300</td><td class="num">$12,600</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col"><h3>The five-year model</h3><p class="sub">Single suite, no building, all five levers working. Rent escalates 4% a year.</p></div>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th>&nbsp;</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th><th class="num">Year 4</th><th class="num">Year 5</th></tr></thead>
+        <tbody>
+          <tr><td>Clients per week</td><td class="num">9</td><td class="num">12</td><td class="num">14</td><td class="num">15</td><td class="num">16</td></tr>
+          <tr><td>Average ticket</td><td class="num">$135</td><td class="num">$145</td><td class="num">$155</td><td class="num">$165</td><td class="num">$175</td></tr>
+          <tr><td>Service revenue</td><td class="num">$63,200</td><td class="num">$90,500</td><td class="num">$112,800</td><td class="num">$128,700</td><td class="num">$145,600</td></tr>
+          <tr><td>Retail</td><td class="num">$2,400</td><td class="num">$6,000</td><td class="num">$10,000</td><td class="num">$13,000</td><td class="num">$16,000</td></tr>
+          <tr><td>Teaching &amp; digital</td><td class="num">&mdash;</td><td class="num">$1,500</td><td class="num">$6,000</td><td class="num">$12,000</td><td class="num">$20,000</td></tr>
+          <tr class="total"><td>Total revenue</td><td class="num">$65,600</td><td class="num">$98,000</td><td class="num">$128,800</td><td class="num">$153,700</td><td class="num">$181,600</td></tr>
+          <tr><td>Suite rent</td><td class="num">$20,800</td><td class="num">$21,600</td><td class="num">$22,500</td><td class="num">$23,400</td><td class="num">$24,300</td></tr>
+          <tr><td>Other fixed costs</td><td class="num">$4,100</td><td class="num">$5,000</td><td class="num">$6,200</td><td class="num">$7,500</td><td class="num">$8,800</td></tr>
+          <tr><td>Product, processing, cost of goods</td><td class="num">$8,000</td><td class="num">$13,100</td><td class="num">$18,400</td><td class="num">$22,600</td><td class="num">$27,200</td></tr>
+          <tr class="total"><td>Your pay, before tax</td><td class="num">$32,700</td><td class="num">$58,200</td><td class="num">$81,800</td><td class="num">$100,200</td><td class="num">$121,200</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col stack">
+      <div class="callout warn">
+        <span class="k">Read this before you get excited</span>
+        <p>That last row is <strong>before tax</strong>. Self-employment tax alone is 15.3%, before federal, Ohio, and Columbus income tax. Move 25&ndash;30% of every deposit into a separate tax account the day it lands. Year five's $121,200 is roughly <strong>$85,000 in your pocket</strong> &mdash; still an excellent living for one chair, but plan against the real number, not the top one.</p>
+      </div>
+
+      <h3>If you want money to launch strong</h3>
+      <p>You don't need a loan for the lean version. But $12&ndash;15K would let you open comfortable, stock retail from day one, and market hard for six months. Columbus has unusually good options for exactly this:</p>
+      <ul class="check">
+        <li><b>ECDI</b> &mdash; Economic &amp; Community Development Institute, 1655 Old Leonard Ave, Columbus 43219, (614) 559-0115. A top SBA microlender built for women, minority, and underbanked business owners. They lend where banks won't, and their Women's Business Centers of Ohio do the coaching free.</li>
+        <li><b>Ohio Micro-Enterprise Loan Program</b> &mdash; $10,000 to $45,000 at <strong>0% interest</strong> for businesses certified as a Women-Owned or Minority-Owned Business Enterprise. Get the certification first; it's what unlocks this.</li>
+        <li><b>Columbus Urban League</b> &mdash; loan and grant programs specifically for minority- and women-owned Columbus businesses.</li>
+        <li><b>SBA Microloan</b> &mdash; up to $50,000, delivered through intermediaries like ECDI.</li>
+        <li><b>MBE / WBE certification</b> through the Ohio Department of Development &mdash; free to apply, and it's the key to the 0% money above.</li>
+      </ul>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; the funding package</span><button type="button" data-copy>Copy</button></div>
+<pre>I'm applying to ECDI in Columbus for a $15,000 microloan to open a
+salon suite as a loctician. Here are my numbers: [paste revenue, costs,
+credit situation].
+
+Write the full loan package: business description, market and competitive
+analysis for locs in Columbus, use of funds broken down line by line,
+3-year projections with monthly detail for year one, and my repayment
+ability. Then list every document they'll ask for and tell me which of
+my numbers is weakest and how to strengthen it before I apply.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEGAL ============ -->
+<section id="legal">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Ohio rules</b> <span>verify every line with the Board</span></div>
+      <h2>The licensing you actually need</h2>
+      <p>Ohio regulates this through the <strong>Ohio State Cosmetology and Barber Board</strong> (cos.ohio.gov). There are three separate credentials in play and people routinely miss the second and third.</p>
+    </div>
+
+    <div class="col stack">
+      <ul class="check">
+        <li><b>Your practicing license.</b> Ohio's <em>Natural Hair Stylist</em> license requires at least 450 hours covering infection control, scalp care, anatomy, styling, and the laws governing practice. It covers twisting, wrapping, weaving, extending, <strong>locking</strong>, and braiding. There's also a Boutique Service Registration route for braiding specifically.</li>
+        <li><b>An Independent Contractor license.</b> Under Ohio's rules, an independent working inside a licensed salon needs this in addition to the practicing license. This is the one suite renters forget.</li>
+        <li><b>A salon license for the suite address.</b> Ohio issues salon licenses by location. Ask Sola directly, in writing, whether they hold it for the building or whether each suite must be licensed separately &mdash; then confirm the answer with the Board yourself.</li>
+        <li><b>Continuing education every two years</b> to renew.</li>
+        <li><b>Ohio LLC</b> through the Secretary of State, <b>EIN</b> from the IRS, and a <b>vendor's license</b> once you sell retail product &mdash; retail means sales tax.</li>
+        <li><b>General liability and professional liability insurance.</b> Sola will likely require proof; get it regardless.</li>
+      </ul>
+
+      <div class="callout warn">
+        <span class="k">The decision hiding in here</span>
+        <p>The Natural Hair Stylist license is <strong>non-chemical only</strong>. If you ever want to offer loc coloring, lightening, or any chemical service, that requires a full cosmetology license &mdash; a much bigger hour requirement. Decide now, because it changes your menu, your ceiling, and possibly your school plans. If coloring locs is part of the vision, start those hours before you sign a suite, not after.</p>
+      </div>
+
+      <div class="prompt">
+        <div class="prompt-head"><span>Ask Claude &middot; your compliance checklist</span><button type="button" data-copy>Copy</button></div>
+<pre>I'm a loctician in Columbus, Ohio opening a salon suite. I currently
+hold: [your license type and number]. I want to offer: [list services,
+and say whether any are chemical].
+
+Build me a complete compliance checklist - every license, registration,
+insurance, and filing I need, with the agency, the cost, the timeline,
+and the order to do them in. Flag anything I might already be out of
+compliance on. Then write the exact list of questions to email the Ohio
+State Cosmetology and Barber Board so I get confirmation in writing.</pre>
+      </div>
+      <p class="sub">Everything on this page is research and planning, not legal, tax, or licensing advice. Confirm licensing with the Board and taxes with a CPA before you rely on any of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START HERE ============ -->
+<section id="start">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Start here</b> <span>tonight</span></div>
+      <h2>The first prompt</h2>
+      <p>Open Claude and paste this. It sets up everything else on this page, using your real numbers instead of my estimates.</p>
+    </div>
+
+    <div class="col">
+      <div class="prompt">
+        <div class="prompt-head"><span>The master prompt</span><button type="button" data-copy>Copy</button></div>
+<pre>I'm a loctician in Columbus, Ohio. My goal is to move into my own salon
+suite - most likely a Sola Salon Studios suite - and build it into a
+six-figure loc business over the next five years without buying a
+building.
+
+Here's where I am today:
+- Where I currently do hair: ____
+- Clients I see in a typical week: ____
+- My prices: ____
+- What I made the last 3 months: ____
+- What I have saved to put toward this: ____
+- My license type: ____
+- Credit situation: ____
+- When I want to be in the suite by: ____
+
+Act as my business partner, not a cheerleader. Start by asking me
+whatever you need to know that I left out. Then build me:
+
+1. A 12-month cash flow showing when I break even and what I need in
+   the bank before I sign
+2. My new service menu and prices for the move
+3. A ranked comparison of the Columbus suite options for my clients
+4. A 30-day launch plan with the actual posts and texts
+5. My Ohio licensing and business setup checklist in order
+
+Tell me the one thing most likely to go wrong, and what to do about it.</pre>
+      </div>
+    </div>
+
+    <div class="col stack">
+      <h3>Your next three moves</h3>
+      <ol class="steps">
+        <li><div class="stack-sm"><h4>Call (614) 450-1885 this week</h4><p class="sub">Book tours at all three Sola Columbus locations. Ask for the weekly rate and the waitlist on the call &mdash; you'll know in ten minutes whether New Albany is realistic.</p></div></li>
+        <li><div class="stack-sm"><h4>File the LLC and open the business account</h4><p class="sub">$99 and one evening. Nothing else on this page can be done properly until this exists.</p></div></li>
+        <li><div class="stack-sm"><h4>Pull your last six months of income into one place</h4><p class="sub">Every number in this plan is an estimate until you replace it with yours. This is the single most valuable hour you'll spend.</p></div></li>
+      </ol>
+
+      <div class="callout">
+        <span class="k">What Claude can't do for you</span>
+        <p>Claude can't sign your lease, can't give you legal or tax advice you can rely on in place of a CPA or an attorney, can't guarantee a loan, and can't confirm what the Ohio Board will accept &mdash; only the Board can. And it can't do the hair, or make the phone call. What it can do is take every hour of paperwork, planning, pricing, writing, and analysis off your plate so you spend your time in the chair.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="fine"><strong>Where the numbers come from.</strong> Suite rents from published Columbus and national salon-suite ranges &mdash; get a real quote before relying on them. Columbus loc pricing from current Columbus loctician listings on Booksy, StyleSeat, Vagaro, and Square. Demographics from Census-derived profiles for Columbus, Gahanna, and Reynoldsburg. Licensing from the Ohio Revised Code and the Ohio State Cosmetology and Barber Board. Funding from ECDI, the Ohio Department of Development, and the Columbus Urban League.</p>
+    <p class="fine">Every projection here is a model, not a promise. Replace each estimate with your own number as you get it &mdash; the plan gets more useful every time you do.</p>
+    <p class="fine">Prepared by Ironbridge Strategy Group &middot; August 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
+  var ids = ['rent','ticket','clients','fixed'];
+  var el = {};
+  ids.forEach(function(i){ el[i] = document.getElementById(i); });
+  var oBe = document.getElementById('o-be'),
+      oRev = document.getElementById('o-rev'),
+      oProfit = document.getElementById('o-profit'),
+      oYear = document.getElementById('o-year');
+
+  function num(id, fallback){
+    var v = parseFloat(el[id].value);
+    return (isFinite(v) && v >= 0) ? v : fallback;
+  }
+
+  function calc(){
+    var VAR = 0.106;
+    var rent = num('rent', 400),
+        ticket = num('ticket', 135),
+        clients = num('clients', 12),
+        fixed = num('fixed', 342);
+
+    var monthlyFixed = rent * 52 / 12 + fixed;
+    var beRevenue = monthlyFixed / (1 - VAR);
+    var beClientsWk = ticket > 0 ? beRevenue / ticket / (52/12) : 0;
+
+    var revenue = clients * ticket * 52 / 12;
+    var profit = revenue * (1 - VAR) - monthlyFixed;
+
+    oBe.textContent = beClientsWk.toFixed(1);
+    oRev.textContent = f(revenue);
+    oProfit.textContent = f(profit);
+    oYear.textContent = f(profit * 12);
+    oProfit.className = 'n ' + (profit >= 0 ? 'good' : 'bad');
+    oYear.className = 'n ' + (profit >= 0 ? 'good' : 'bad');
+  }
+
+  ids.forEach(function(i){
+    el[i].addEventListener('input', calc);
+  });
+  calc();
+
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.closest('.prompt').querySelector('pre');
+      var done = function(ok){
+        btn.textContent = ok ? 'Copied' : 'Select it';
+        btn.setAttribute('data-done', ok ? '1' : '0');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.removeAttribute('data-done'); }, 1800);
+      };
+      try {
+        navigator.clipboard.writeText(pre.textContent).then(function(){ done(true); }, function(){ done(false); });
+      } catch (e) { done(false); }
+    });
+  });
+})();
+</script>
