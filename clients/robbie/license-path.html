@@ -1,0 +1,578 @@
+<title>Robbie's License Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F4F3EE;
+  --surface:#FCFBF8;
+  --surface-2:#EDEBE3;
+  --ink:#14282B;
+  --body:#28393B;
+  --muted:#5E6B67;
+  --rule:#DCD9CD;
+  --rule-strong:#C3BFAF;
+  --brass:#9A6B22;
+  --brass-soft:#E5D5B4;
+  --sage:#3F6E60;
+  --clay:#8A4B44;
+  --shadow:rgba(20,40,43,.07);
+
+  --f-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-body:'Karla',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+
+  --measure:68ch;
+  --wide:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1719;
+    --surface:#152225;
+    --surface-2:#1B2C2F;
+    --ink:#EBEAE2;
+    --body:#CDD4D0;
+    --muted:#8FA09B;
+    --rule:#26383B;
+    --rule-strong:#375054;
+    --brass:#D9A051;
+    --brass-soft:#3A2E18;
+    --sage:#79B3A0;
+    --clay:#CC8078;
+    --shadow:rgba(0,0,0,.34);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1719;
+  --surface:#152225;
+  --surface-2:#1B2C2F;
+  --ink:#EBEAE2;
+  --body:#CDD4D0;
+  --muted:#8FA09B;
+  --rule:#26383B;
+  --rule-strong:#375054;
+  --brass:#D9A051;
+  --brass-soft:#3A2E18;
+  --sage:#79B3A0;
+  --clay:#CC8078;
+  --shadow:rgba(0,0,0,.34);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--body);
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+h1,h2,h3,h4{font-family:var(--f-display);color:var(--ink);text-wrap:balance;margin:0;line-height:1.14;font-weight:600}
+p{margin:0}
+a{color:var(--brass);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.wrap{max-width:var(--wide);margin:0 auto;padding:0 24px}
+.col{max-width:var(--measure)}
+section{padding:64px 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.stack{display:flex;flex-direction:column;gap:20px}
+.stack-sm{display:flex;flex-direction:column;gap:12px}
+.stack-lg{display:flex;flex-direction:column;gap:34px}
+
+/* ---------- masthead ---------- */
+header.mast{padding:64px 0 40px;background:var(--surface);border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brass);display:block;margin-bottom:18px;font-weight:500;
+}
+h1{font-size:clamp(40px,7vw,68px);letter-spacing:-.015em;margin-bottom:18px}
+h1 em{font-style:italic;color:var(--brass);font-weight:400}
+.lede{font-size:clamp(18px,2.2vw,21px);color:var(--muted);line-height:1.55;max-width:60ch}
+.byline{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:28px;letter-spacing:.04em}
+
+/* ---------- sticky nav ---------- */
+nav.jump{
+  position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+nav.jump .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:thin}
+nav.jump a{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;white-space:nowrap;padding:6px 11px;border:1px solid transparent;border-radius:3px;
+}
+nav.jump a:hover{color:var(--ink);border-color:var(--rule-strong);background:var(--surface)}
+
+/* ---------- headings ---------- */
+.phase-tag{
+  display:inline-flex;align-items:baseline;gap:10px;font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+}
+.phase-tag b{color:var(--brass);font-weight:500;font-size:13px}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.01em;margin-bottom:14px}
+h3{font-size:22px;margin-bottom:8px}
+h4{font-size:16px;font-family:var(--f-body);font-weight:700;letter-spacing:.005em;margin-bottom:6px}
+.sub{color:var(--muted);font-size:17px}
+
+/* ---------- rope divider ---------- */
+.rope{display:block;width:100%;height:22px;color:var(--rule-strong);opacity:.85;margin:0}
+
+/* ---------- callout ---------- */
+.callout{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:24px 26px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.callout.brass{border-color:var(--brass);background:var(--surface)}
+.callout .k{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:500;
+}
+.callout.warn .k{color:var(--clay)}
+.callout.warn{border-color:var(--clay)}
+
+/* ---------- number strip ---------- */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.fig{background:var(--surface);padding:20px 18px;display:flex;flex-direction:column;gap:5px}
+.fig .n{font-family:var(--f-display);font-size:30px;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.fig .l{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- tables ---------- */
+.scroller{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--surface-2);border-bottom:1px solid var(--rule-strong);
+}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:14px}
+tr.total td{font-weight:700;color:var(--ink);background:var(--surface-2);border-top:1px solid var(--rule-strong)}
+.rank{font-family:var(--f-mono);color:var(--brass);font-weight:500}
+
+/* ---------- prompt block ---------- */
+.prompt{
+  border:1px solid var(--rule);border-left:2px solid var(--brass);border-radius:4px;
+  background:var(--surface);overflow:hidden;
+}
+.prompt-head{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:9px 14px;background:var(--surface-2);border-bottom:1px solid var(--rule);
+}
+.prompt-head span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.prompt-head button{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--rule-strong);color:var(--muted);
+  padding:4px 10px;border-radius:3px;cursor:pointer;transition:.15s;
+}
+.prompt-head button:hover{color:var(--ink);border-color:var(--brass)}
+.prompt-head button[data-done="1"]{color:var(--sage);border-color:var(--sage)}
+.prompt pre{
+  margin:0;padding:16px 18px;font-family:var(--f-mono);font-size:13.5px;line-height:1.62;
+  color:var(--body);white-space:pre-wrap;word-break:break-word;
+}
+
+/* ---------- checklist ---------- */
+ul.check{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+ul.check li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+ul.check li::before{
+  content:"";flex:0 0 auto;width:13px;height:13px;margin-top:6px;
+  border:1.5px solid var(--rule-strong);border-radius:2px;
+}
+ul.check li b{color:var(--ink)}
+ol.steps{margin:0;padding-left:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:18px}
+ol.steps li{counter-increment:s;display:flex;gap:16px}
+ol.steps li::before{
+  content:counter(s);flex:0 0 auto;font-family:var(--f-mono);font-size:12px;color:var(--brass);
+  width:26px;height:26px;border:1px solid var(--rule-strong);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+
+/* ---------- cards ---------- */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:9px}
+.card .tag{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.card p{font-size:15.5px;color:var(--muted)}
+
+/* ---------- calculator ---------- */
+.calc{background:var(--surface);border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.calc-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;padding:24px;border-bottom:1px solid var(--rule)}
+.calc-in label{display:flex;flex-direction:column;gap:7px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.calc-in input{
+  font-family:var(--f-mono);font-size:19px;font-variant-numeric:tabular-nums;
+  background:var(--paper);color:var(--ink);border:1px solid var(--rule-strong);border-radius:3px;
+  padding:9px 11px;width:100%;
+}
+.calc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule)}
+.calc-out div{background:var(--surface-2);padding:20px 18px;display:flex;flex-direction:column;gap:5px}
+.calc-out .n{font-family:var(--f-display);font-size:28px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1}
+.calc-out .n.good{color:var(--sage)}
+.calc-out .n.bad{color:var(--clay)}
+.calc-out .l{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.calc-note{padding:14px 24px;font-size:14px;color:var(--muted);border-top:1px solid var(--rule)}
+
+/* ---------- footer ---------- */
+footer{background:var(--surface);border-top:1px solid var(--rule);padding:48px 0 60px;margin-top:0}
+footer .fine{font-size:14px;color:var(--muted);max-width:70ch}
+footer .fine + .fine{margin-top:12px}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:48px 0}
+  .wrap{padding:0 18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+/* companion-page additions */
+.branch{border:1px solid var(--rule);border-radius:4px;background:var(--surface);overflow:hidden}
+.branch + .branch{margin-top:0}
+.branch-head{display:flex;gap:14px;align-items:baseline;padding:18px 22px;background:var(--surface-2);border-bottom:1px solid var(--rule)}
+.branch-head .letter{font-family:var(--f-mono);font-size:12px;color:var(--brass);border:1px solid var(--rule-strong);border-radius:3px;padding:3px 8px;flex:0 0 auto}
+.branch-head h4{font-size:17px;margin:0}
+.branch-head .verdict{margin-left:auto;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.verdict.go{color:var(--sage)}
+.verdict.mid{color:var(--brass)}
+.verdict.stop{color:var(--clay)}
+.branch-body{padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+.branch-body p{font-size:15.5px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px}
+.kv dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.kv dd{margin:0;color:var(--body)}
+.flag{display:inline-block;font-family:var(--f-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);border:1px solid var(--clay);border-radius:2px;padding:1px 6px;vertical-align:2px;margin-left:6px}
+.flag.ok{color:var(--sage);border-color:var(--sage)}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="eyebrow">Companion to the suite plan &middot; Ohio licensing</span>
+    <h1>Six years of skill. <em>What does the state say?</em></h1>
+    <p class="lede">Experience and licensure are two different things in Ohio, and Sola will ask for the second one. Here's how to find out where Robbie stands in two minutes, what she'll need either way, and the email that gets the answers in writing.</p>
+    <p class="byline">Prepared 24 August 2026 &middot; Ironbridge Strategy Group</p>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap">
+    <a href="#check">Check in 2 minutes</a>
+    <a href="#branches">Three outcomes</a>
+    <a href="#stack">The three credentials</a>
+    <a href="#fees">Fees &amp; timeline</a>
+    <a href="#school">If she needs hours</a>
+    <a href="#email">The email</a>
+  </div>
+</nav>
+
+<!-- ===== CHECK ===== -->
+<section id="check">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Step one</b> <span>before anything else</span></div>
+      <h2>Look her up. It's free and it takes two minutes.</h2>
+      <p>Ohio's license database is public, needs no account, and updates daily. You do not have to ask Robbie anything uncomfortable &mdash; just look.</p>
+    </div>
+    <div class="col">
+      <ol class="steps">
+        <li><div class="stack-sm"><h4>Go to elicense.ohio.gov and choose License Look-Up</h4><p class="sub">Desktop Chrome or Firefox works best. <a href="https://elicense.ohio.gov/oh_verifylicense">elicense.ohio.gov/oh_verifylicense</a></p></div></li>
+        <li><div class="stack-sm"><h4>Set the board to "Cosmetology and Barber Board"</h4><p class="sub">Search by last name and first initial if you don't have a license number.</p></div></li>
+        <li><div class="stack-sm"><h4>Open the matching record &rarr; View More Info &rarr; Printer Friendly Version</h4><p class="sub">Save it as a PDF. Sola will want proof of licensure, and this is it &mdash; free, official, instant.</p></div></li>
+      </ol>
+    </div>
+    <div class="col">
+      <div class="callout">
+        <span class="k">What you're looking for</span>
+        <p>The <strong>license type</strong> and the <strong>status</strong>. Type tells you what she can legally charge for. Status tells you whether it's active or lapsed &mdash; a lapsed license is a much smaller problem than no license, and is usually fixed with a restoration fee rather than school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRANCHES ===== -->
+<section id="branches">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Three outcomes</b> <span>what the lookup will show</span></div>
+      <h2>Whichever one it is, the suite is still reachable</h2>
+      <p>Six years in the chair is real leverage in all three cases. The only variable is how long the runway is.</p>
+    </div>
+
+    <div class="stack">
+      <div class="branch">
+        <div class="branch-head"><span class="letter">A</span><h4>Cosmetologist &mdash; 1,500 hours</h4><span class="verdict go">Clear runway</span></div>
+        <div class="branch-body">
+          <p>The highest ceiling. She can do locs <em>and</em> chemical services &mdash; coloring locs, lightening, trims and shaping. Nothing on the suite plan's menu is off limits, and the teaching lever is fully open to her.</p>
+          <dl class="kv">
+            <dt>To do</dt><dd>Add the Independent Contractor license. Settle the salon-license question. Keep CE current.</dd>
+            <dt>Cost</dt><dd>Roughly $75&ndash;$150 in board fees</dd>
+            <dt>Timeline</dt><dd>Weeks, not months &mdash; no barrier to signing a suite</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="branch">
+        <div class="branch-head"><span class="letter">B</span><h4>Natural Hair Stylist &mdash; 450 hours</h4><span class="verdict mid">Clear, with a ceiling</span></div>
+        <div class="branch-body">
+          <p>Purpose-built for exactly what she does. Ohio defines it as twisting, wrapping, weaving, extending, <strong>locking</strong>, and braiding. Every core loc service is covered and she can sign a suite now.</p>
+          <p>The ceiling: it's a <strong>non-chemical</strong> license, and sources also describe it as excluding cutting. That would put loc coloring and loc trims off her menu &mdash; the clients who want those book elsewhere, often taking the whole appointment with them. <span class="flag">Confirm with Board</span></p>
+          <dl class="kv">
+            <dt>To do</dt><dd>Add the Independent Contractor license. Settle the salon-license question. Decide, deliberately, whether the chemical ceiling is worth 1,500 hours later.</dd>
+            <dt>Cost</dt><dd>Roughly $75&ndash;$150 in board fees now</dd>
+            <dt>Timeline</dt><dd>Weeks &mdash; no barrier to signing a suite</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="branch">
+        <div class="branch-head"><span class="letter">C</span><h4>Unlicensed, lapsed, or braiding registration only</h4><span class="verdict stop">Fix this first</span></div>
+        <div class="branch-body">
+          <p>Common, and not a character judgment &mdash; loc work sat in a regulatory grey zone for years and plenty of excellent locticians never went through the state. But a suite complex will ask for the license before she signs, so this becomes the gate.</p>
+          <p><strong>If it's lapsed:</strong> usually a restoration fee and current CE, not school. Check this before assuming the worst.</p>
+          <p><strong>If it's genuinely absent:</strong> the 450-hour Natural Hair Stylist license is the target &mdash; and her six years may cut into that requirement substantially. See the two items below.</p>
+          <dl class="kv">
+            <dt>Cost</dt><dd>$0 if lapsed and restorable &middot; up to $7,500 + $85 board fees if she needs the full program</dd>
+            <dt>Timeline</dt><dd>Weeks if lapsed &middot; 13 weeks full-time or 22.5 part-time if she needs hours</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="col stack">
+      <div class="callout brass">
+        <span class="k">The find worth chasing</span>
+        <p>Ohio's rules for out-of-state applicants let <strong>a year of licensed experience substitute for 100 hours of training, up to 500 hours.</strong> Robbie's six years would cap out at 500 &mdash; more than the 450 the Natural Hair Stylist license requires.</p>
+        <p>The catch is in one word: <em>licensed</em>. The provision sits in the out-of-state license holder rule, so it most likely applies only if she has held a license somewhere. Six years of unlicensed Ohio practice probably doesn't qualify. <strong>But it costs one email to find out</strong>, and if it applies it saves $7,500 and a season of her life. It's question 7 in the draft below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="rope" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <g fill="none" stroke="currentColor" stroke-width="1.1">
+    <path d="M0,10 C12.5,2 12.5,18 25,10 C37.5,2 37.5,18 50,10 C62.5,2 62.5,18 75,10 C87.5,2 87.5,18 100,10 C112.5,2 112.5,18 125,10 C137.5,2 137.5,18 150,10 C162.5,2 162.5,18 175,10 C187.5,2 187.5,18 200,10 C212.5,2 212.5,18 225,10 C237.5,2 237.5,18 250,10 C262.5,2 262.5,18 275,10 C287.5,2 287.5,18 300,10 C312.5,2 312.5,18 325,10 C337.5,2 337.5,18 350,10 C362.5,2 362.5,18 375,10 C387.5,2 387.5,18 400,10"/>
+    <path d="M0,10 C12.5,18 12.5,2 25,10 C37.5,18 37.5,2 50,10 C62.5,18 62.5,2 75,10 C87.5,18 87.5,2 100,10 C112.5,18 112.5,2 125,10 C137.5,18 137.5,2 150,10 C162.5,18 162.5,2 175,10 C187.5,18 187.5,2 200,10 C212.5,18 212.5,2 225,10 C237.5,18 237.5,2 250,10 C262.5,18 262.5,2 275,10 C287.5,18 287.5,2 300,10 C312.5,18 312.5,2 325,10 C337.5,18 337.5,2 350,10 C362.5,18 362.5,2 375,10 C387.5,18 387.5,2 400,10"/>
+  </g>
+</svg>
+
+<!-- ===== STACK ===== -->
+<section id="stack">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>The stack</b> <span>three credentials, not one</span></div>
+      <h2>What a suite renter actually needs in Ohio</h2>
+      <p>Almost everyone knows about the first one. The second and third are where suite renters get caught.</p>
+    </div>
+
+    <div class="col">
+      <ol class="steps">
+        <li><div class="stack-sm"><h4>Her practicing license</h4><p class="sub">Natural Hair Stylist or Cosmetologist. This is what the lookup shows. It defines her menu.</p></div></li>
+        <li><div class="stack-sm"><h4>An Independent Contractor license</h4><p class="sub">Ohio requires this separately for someone working as an independent inside a licensed salon. Around <strong>$75 to issue, $70 to renew.</strong> This is the one suite renters forget, and it is exactly Robbie's situation.</p></div></li>
+        <li><div class="stack-sm"><h4>A salon license for the suite address</h4><p class="sub">Ohio licenses salons by location. Whether Sola holds one for the whole building or each suite needs its own is <strong>the single question nobody online can answer.</strong> Ask Sola in writing and confirm with the Board.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="col">
+      <div class="callout warn">
+        <span class="k">The sharp edge &mdash; worth asking about specifically</span>
+        <p>Ohio Revised Code &sect;4713.41 describes a salon license being issued on the affirmation that <strong>an individual holding a current, valid cosmetologist license</strong> has charge of and immediate supervision over the salon whenever it's open.</p>
+        <p>Read literally, that raises a real question: if Robbie holds only a Natural Hair Stylist license, <em>can she be the licence-holder and supervisor of her own suite?</em> There may well be a parallel provision for natural hair and boutique salons &mdash; but if there isn't, this quietly determines whether she can hold her own salon license or must operate under Sola's. It's question 6 below, and it's the one I'd want answered before signing anything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEES ===== -->
+<section id="fees">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Fees</b> <span>board costs only</span></div>
+      <h2>What the state charges</h2>
+      <p class="sub">Ohio revised its fee rules effective January 2025. Confirm every figure against the Board's own sheet &mdash; these come from secondary sources.</p>
+    </div>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Item</th><th class="num">Fee</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Natural Hair Stylist &mdash; examination</td><td class="num">$40</td><td>Theory and practical, at the Board's Dublin exam center</td></tr>
+          <tr><td>Natural Hair Stylist &mdash; initial license</td><td class="num">$45</td><td>$85 total to get licensed, excluding school</td></tr>
+          <tr><td>Independent Contractor &mdash; issuance</td><td class="num">$75</td><td>Required to rent a suite as an independent</td></tr>
+          <tr><td>Independent Contractor &mdash; renewal</td><td class="num">$70</td><td></td></tr>
+          <tr><td>Cosmetology / barbering renewal</td><td class="num">$65</td><td>Every two years, with CE</td></tr>
+          <tr><td>Temporary pre-examination work permit</td><td class="num">$15</td><td>Lets her work while waiting on the exam</td></tr>
+          <tr><td>Re-examination</td><td class="num">$35</td><td></td></tr>
+          <tr><td>Salon license</td><td class="num">Confirm</td><td>Fee not published in sources I could reach &mdash; ask the Board</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col">
+      <p>All fees are paid through the <strong>eLicense Ohio</strong> portal. A Board inspector visits a newly licensed facility at random within 90 days of issue, and licensed facilities are inspected at least every two years &mdash; so whatever the salon-license answer turns out to be, expect someone to walk through that suite.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCHOOL ===== -->
+<section id="school">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>Branch C only</b> <span>if she needs the 450 hours</span></div>
+      <h2>Ohio's only accredited natural hair program is in Columbus</h2>
+      <p>A genuine piece of luck. She wouldn't have to leave the city or settle for a general cosmetology program that treats loc work as an afterthought.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">The 450-hour route</span>
+        <h4>New Directions Beauty Institute</h4>
+        <p>2013 E. Dublin-Granville Rd, Columbus, OH 43229. Ohio's only accredited natural hair program, open since 2010. Curriculum covers state law, salon operations, and salon ownership alongside technique &mdash; useful for someone about to run her own suite.</p>
+        <p><strong>$7,500 &middot; 13 weeks full-time or 22.5 weeks part-time.</strong> The part-time track is the one that lets her keep her book while she does it.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The narrow route</span>
+        <h4>Boutique Service Registration</h4>
+        <p>A shorter registration route covering braiding specifically, requiring a notarized affidavit from a trainer. Columbus Braiding Co runs a course for it.</p>
+        <p><strong>Worth knowing, probably not the answer.</strong> If it covers braiding but not locking, it doesn't cover her core service. Confirm the scope before spending a dollar on it &mdash; that's question 1.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Order of operations</span>
+        <h4>Ask before you enroll</h4>
+        <p>Send the email first. If the experience-credit provision applies to her, she may need far fewer than 450 hours &mdash; or none. Paying $7,500 before asking a free question would be the most expensive mistake in this whole plan.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Meanwhile</span>
+        <h4>The suite doesn't have to wait for everything</h4>
+        <p>The temporary pre-examination work permit exists precisely for this gap. Ask whether it lets her work in a suite while her exam is pending &mdash; that could compress the timeline by months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMAIL ===== -->
+<section id="email">
+  <div class="wrap stack-lg">
+    <div class="col stack">
+      <div class="phase-tag"><b>The email</b> <span>send it this week</span></div>
+      <h2>Get it in writing from the Board</h2>
+      <p>Every uncertainty flagged on this page resolves with one message. Written answers from the Board are also what you show Sola, an insurer, or an inspector later &mdash; so email rather than call, and keep the reply.</p>
+      <div class="kv" style="margin-top:6px">
+        <dt>Email</dt><dd><a href="mailto:ohiocos@cos.ohio.gov">ohiocos@cos.ohio.gov</a></dd>
+        <dt>Phone</dt><dd>(614) 466-3834</dd>
+        <dt>Web</dt><dd>cos.ohio.gov</dd>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="prompt">
+        <div class="prompt-head"><span>Copy &middot; paste &middot; fill the brackets &middot; send</span><button type="button" data-copy>Copy</button></div>
+<pre>Subject: Licensing requirements - loc services in a rented salon suite (Columbus)
+
+Good morning,
+
+I am a natural hair stylist in Columbus with six years of experience
+specializing in locs - installation, retwisting, interlocking, and
+maintenance. I am preparing to rent an individual studio in a multi-suite
+salon facility and want to make certain I am fully compliant before I
+sign anything.
+
+My current status: [state it plainly - e.g. "I hold Natural Hair Stylist
+license #______" or "I do not currently hold an Ohio license"].
+
+I would be grateful for written answers to the following:
+
+1. SCOPE. Which license permits loc installation, retwisting,
+   interlocking, and maintenance - Natural Hair Stylist, Cosmetologist,
+   or a Boutique Service Registration? Does a Boutique Service
+   Registration in braiding cover locking, or braiding only?
+
+2. CUTTING. Does the Natural Hair Stylist license permit trimming or
+   shaping locs?
+
+3. CHEMICAL SERVICES. I understand the Natural Hair Stylist license is
+   non-chemical. Please confirm whether coloring locs requires a
+   Cosmetologist license.
+
+4. INDEPENDENT CONTRACTOR LICENSE. Is an Independent Contractor license
+   required to rent a studio in a multi-suite facility? What is the
+   application process, fee, and processing time?
+
+5. SALON LICENSE. In a multi-suite facility where each stylist rents an
+   individual studio, does the facility operator hold a single salon
+   license for the building, or must each individual studio be
+   separately licensed as a salon? If each studio requires its own
+   license, please describe the requirements, fee, and inspection
+   process.
+
+6. SUPERVISION. ORC 4713.41 refers to an individual holding a valid
+   Cosmetologist license having charge of and immediate supervision over
+   a salon. If I hold a Natural Hair Stylist license rather than a
+   Cosmetologist license, may I be the license holder and supervisor of
+   my own studio, or is a Cosmetologist required in that role?
+
+7. EXPERIENCE CREDIT. I understand Ohio may substitute 100 hours of
+   training for each year of licensed experience, up to 500 hours. Does
+   that provision apply only to applicants licensed in another state, or
+   can documented Ohio work experience be credited toward the 450-hour
+   Natural Hair Stylist requirement?
+
+8. WORK PERMIT. Does the temporary pre-examination work permit allow me
+   to work in a rented studio while my examination is pending?
+
+9. CONTINUING EDUCATION. What CE is required for my license type, and
+   what is the renewal cycle?
+
+10. POSTING. What must be displayed in my studio - licenses,
+    certificates, price list, or anything else an inspector will look
+    for?
+
+Thank you very much for your time. A written reply would be a great
+help, as I expect to be asked for documentation by the facility and by
+my insurer.
+
+Kind regards,
+[Full name]
+[Phone] | [Email]
+[License number, if any]</pre>
+      </div>
+    </div>
+
+    <div class="col stack">
+      <h3>While you wait for the reply</h3>
+      <ul class="check">
+        <li><b>Run the eLicense lookup</b> and save the PDF. Two minutes, and it settles which branch she's on.</li>
+        <li><b>Ask Sola the salon-license question in writing too.</b> Their answer and the Board's should match. If they don't, that's worth knowing before signing.</li>
+        <li><b>Don't enroll in anything yet.</b> Question 7 could make the $7,500 unnecessary.</li>
+        <li><b>Everything else in the suite plan continues.</b> The LLC, the EIN, the business bank account, the bookkeeping, the client list &mdash; none of it waits on licensing.</li>
+      </ul>
+
+      <div class="callout">
+        <span class="k">Why this page hedges where it does</span>
+        <p>The Board's own website could not be reached from where this was researched, so every figure and rule here comes from the Ohio Revised Code, the Ohio Administrative Code, and secondary licensing sources. The items marked <span class="flag">Confirm with Board</span> are the ones I would not repeat to Robbie as settled fact. That's precisely what the email is for &mdash; and why it's worth sending before any money moves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="fine"><strong>Sources.</strong> Ohio Revised Code &sect;4713.01, &sect;4713.28, &sect;4713.31 and &sect;4713.41; Ohio Administrative Code 4713-7-09 (out-of-state applicants), 4713-13-02 (independent contractors) and 4713-1-10 (inspections); Ohio State Cosmetology and Barber Board published fee and curriculum information; eLicense Ohio; New Directions Beauty Institute.</p>
+    <p class="fine">Research and planning only &mdash; not legal or licensing advice. The Ohio State Cosmetology and Barber Board is the only authority on any of it.</p>
+    <p class="fine">Ironbridge Strategy Group &middot; August 2026</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var pre = btn.closest('.prompt').querySelector('pre');
+    var done = function(ok){
+      btn.textContent = ok ? 'Copied' : 'Select it';
+      btn.setAttribute('data-done', ok ? '1' : '0');
+      setTimeout(function(){ btn.textContent = 'Copy'; btn.removeAttribute('data-done'); }, 1800);
+    };
+    try {
+      navigator.clipboard.writeText(pre.textContent).then(function(){ done(true); }, function(){ done(false); });
+    } catch (e) { done(false); }
+  });
+});
+</script>
