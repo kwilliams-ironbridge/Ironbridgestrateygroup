@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twenty & Out - Veteran Apparel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #1E4D7B;
+    --accent: #2E8B9E;
+    --dark: #0d0d0d;
+    --light: #fafafa;
+    --text: #1a1a1a;
+    --muted: #666;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--light);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--primary);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 48px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(30, 77, 123, 0.05) 0%, rgba(46, 139, 158, 0.05) 100%);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+
+  .hero .tagline {
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero .subtitle {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+
+  .stat-bar {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 48px 0;
+    font-size: 14px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 14px 40px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .cta-button:hover {
+    background: #163a5a;
+    transform: translateY(-2px);
+  }
+
+  /* ── PRODUCTS ── */
+  .products {
+    padding: 80px 48px;
+    background: white;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .product-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(30, 77, 123, 0.1);
+  }
+
+  .product-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+  }
+
+  .product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .product-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .product-price {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+
+  /* ── COMMUNITY ── */
+  .community {
+    padding: 80px 48px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+  }
+
+  .community h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .community p {
+    font-size: 1rem;
+    margin-bottom: 32px;
+    opacity: 0.95;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 48px;
+    background: var(--text);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 16px 24px;
+    }
+
+    .nav-logo {
+      font-size: 16px;
+    }
+
+    .nav-links {
+      gap: 16px;
+    }
+
+    .hero {
+      padding: 60px 24px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+    }
+
+    .stat-bar {
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .products {
+      padding: 60px 24px;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .community {
+      padding: 60px 24px;
+    }
+
+    .social-links {
+      gap: 12px;
+    }
+
+    .social-link {
+      padding: 10px 16px;
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">TWENTY & OUT</div>
+  <ul class="nav-links">
+    <li><a href="#designs">Designs</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="https://twentyandout.myshopify.com">Shop</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Earned the Right to Do It Different</h1>
+  <p class="tagline">25 Years of Service | Infinite Ways to Wear It</p>
+  <p class="subtitle">Veteran-owned apparel breaking the mold. Bold designs. Zero apologies. Community-driven.</p>
+
+  <div class="stat-bar">
+    <div class="stat">
+      <span class="stat-number">25</span>
+      <span class="stat-label">Years Served</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">12+</span>
+      <span class="stat-label">Colors Per Design</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">3</span>
+      <span class="stat-label">Bold Designs</span>
+    </div>
+  </div>
+
+  <a href="https://twentyandout.myshopify.com" class="cta-button">Shop Now</a>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="designs">
+  <h2 class="section-title">Our Collections</h2>
+
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon">🎖️</div>
+      <h3>PCS'd to Civilian Life</h3>
+      <p>The transition. The pride. The next chapter.</p>
+      <div class="product-price">$49.99</div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">✈️</div>
+      <h3>Veteran Pride</h3>
+      <p>Bold colors. Zero apologies. Pure veteran energy.</p>
+      <div class="product-price">$49.99</div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">⚡</div>
+      <h3>Built By 20 Years</h3>
+      <p>Strength forged through decades. Worn with intention.</p>
+      <div class="product-price">$49.99</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY & SOCIAL -->
+<section class="community" id="community">
+  <h2>Join the Community</h2>
+  <p>Connect with veterans and supporters redefining what veteran looks like. Follow for early access, behind-the-scenes updates, and exclusive community content.</p>
+
+  <div class="social-links">
+    <a href="https://instagram.com/twenty.and.out" class="social-link">📷 Instagram</a>
+    <a href="https://tiktok.com/@twenty.and.out" class="social-link">🎵 TikTok</a>
+    <a href="https://twitter.com/Twenty_and_Out" class="social-link">𝕏 X</a>
+    <a href="https://facebook.com/61593892446100" class="social-link">f Facebook</a>
+    <a href="https://youtube.com/@TWENTYandOUT" class="social-link">▶️ YouTube</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Twenty & Out | Veteran-owned &nbsp;&bull;&nbsp; <a href="https://twentyandout.myshopify.com">Shop</a> &nbsp;&bull;&nbsp; <a href="mailto:kenyattawilliams1121@gmail.com">Contact</a></p>
+  <div style="margin-top: 16px; display: flex; justify-content: center; gap: 16px; font-size: 13px; flex-wrap: wrap;">
+    <a href="https://instagram.com/twenty.and.out">Instagram</a>
+    <a href="https://tiktok.com/@twenty.and.out">TikTok</a>
+    <a href="https://facebook.com/61593892446100">Facebook</a>
+    <a href="https://twitter.com/Twenty_and_Out">X</a>
+    <a href="https://youtube.com/@TWENTYandOUT">YouTube</a>
+  </div>
+</footer>
+
+</body>
+</html>
