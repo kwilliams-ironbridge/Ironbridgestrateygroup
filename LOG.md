@@ -58,6 +58,12 @@ Format: `date | PREFIX | what it was | what's blocking it`
 |---|---|---|
 | Branding consistency | Gap found between site and social | Pick: update About, or tighten notary framing |
 
+### FOURCOUNT — breathing app (was BreathWorks / "Foursquare")
+
+| Chat | Where it stopped | Your move |
+|---|---|---|
+| FourCount app | Expo app scaffolded, 7 screens, TypeScript clean | Create private repo `fourcount-app`, reply "moved" |
+
 ### IDEA — no home yet
 
 | Chat | Where it stopped | Your move |
@@ -65,7 +71,7 @@ Format: `date | PREFIX | what it was | what's blocking it`
 | TikTok Shop dumplings (market) | Research done | Decide if this is real |
 | TikTok Shop dumplings (wholesale) | Research done | Content side, or drop it |
 | $5k small business grant | Two paths found | Say "do the Verizon" or "do the certification" |
-| BreathWorks / fourcount app | Expo app scaffolded, 7 screens | Create private repo `fourcount-app`, reply "moved" |
+
 
 ---
 
